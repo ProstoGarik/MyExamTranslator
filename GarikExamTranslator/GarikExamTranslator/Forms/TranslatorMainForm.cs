@@ -14,18 +14,26 @@ namespace GarikExamTranslator
     {
         viewModel viewModel;
         AddAndEditWordForm addAndEditWordForm;
+        WordListForm wordListForm;
 
         public TranslatorMainForm()
         {
             InitializeComponent();
             viewModel = new viewModel();
-            addAndEditWordForm = new AddAndEditWordForm();
+            addAndEditWordForm = new AddAndEditWordForm(this, viewModel, false);
+            wordListForm = new WordListForm(this, viewModel);
         }
 
 
         private void addWordButton_Click(object sender, EventArgs e)
         {
+            viewModel.ClearWorkinWithWord();
             viewModel.FormResizeCloseOpen(this, addAndEditWordForm);
+        }
+
+        private void WordListButton_Click(object sender, EventArgs e)
+        {
+            viewModel.FormResizeCloseOpen(this, wordListForm);
         }
     }
 }

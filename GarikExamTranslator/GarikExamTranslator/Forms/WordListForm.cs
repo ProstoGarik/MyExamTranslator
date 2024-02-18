@@ -12,9 +12,18 @@ namespace GarikExamTranslator
 {
     public partial class WordListForm : Form
     {
-        public WordListForm()
+        private viewModel viewModel;
+        private TranslatorMainForm returnForm;
+        public WordListForm(TranslatorMainForm returnForm, viewModel viewModel)
         {
             InitializeComponent();
+            this.returnForm = returnForm;
+            this.viewModel = viewModel;
+        }
+
+        private void WordListForm_Load(object sender, EventArgs e)
+        {
+            WordsLabel.Text = viewModel.GenerateWordList();
         }
     }
 }

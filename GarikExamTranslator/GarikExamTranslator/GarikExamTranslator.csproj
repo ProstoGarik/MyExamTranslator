@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom\EditLabelCustomControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom\EditLabelCustomControl.Designer.cs">
+      <DependentUpon>EditLabelCustomControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddAndEditWordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="Forms\WordListForm.Designer.cs">
       <DependentUpon>WordListForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddAndEditWordForm.resx">
+      <DependentUpon>AddAndEditWordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -94,6 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExamTranslatorClassLibrary\ExamTranslatorClassLibrary.csproj">
+      <Project>{46a89c2d-0050-4e37-bfab-5fc42f2814ac}</Project>
+      <Name>ExamTranslatorClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

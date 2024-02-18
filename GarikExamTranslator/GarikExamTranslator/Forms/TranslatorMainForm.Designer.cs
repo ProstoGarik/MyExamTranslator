@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.addWordButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AddWordButton = new System.Windows.Forms.Button();
+            this.WordListButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // addWordButton
+            // AddWordButton
             // 
-            this.addWordButton.Location = new System.Drawing.Point(12, 12);
-            this.addWordButton.Name = "addWordButton";
-            this.addWordButton.Size = new System.Drawing.Size(219, 75);
-            this.addWordButton.TabIndex = 0;
-            this.addWordButton.Text = "Добавить Слово";
-            this.addWordButton.UseVisualStyleBackColor = true;
-            this.addWordButton.Click += new System.EventHandler(this.addWordButton_Click);
+            this.AddWordButton.Location = new System.Drawing.Point(12, 12);
+            this.AddWordButton.Name = "AddWordButton";
+            this.AddWordButton.Size = new System.Drawing.Size(219, 75);
+            this.AddWordButton.TabIndex = 0;
+            this.AddWordButton.Text = "Добавить Слово";
+            this.AddWordButton.UseVisualStyleBackColor = true;
+            this.AddWordButton.Click += new System.EventHandler(this.addWordButton_Click);
             // 
-            // button2
+            // WordListButton
             // 
-            this.button2.Location = new System.Drawing.Point(569, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 75);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Просмотреть Слова";
-            this.button2.UseVisualStyleBackColor = true;
+            this.WordListButton.Location = new System.Drawing.Point(569, 12);
+            this.WordListButton.Name = "WordListButton";
+            this.WordListButton.Size = new System.Drawing.Size(219, 75);
+            this.WordListButton.TabIndex = 1;
+            this.WordListButton.Text = "Просмотреть Слова";
+            this.WordListButton.UseVisualStyleBackColor = true;
+            this.WordListButton.Click += new System.EventHandler(this.WordListButton_Click);
             // 
             // TranslatorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.addWordButton);
+            this.Controls.Add(this.WordListButton);
+            this.Controls.Add(this.AddWordButton);
             this.Name = "TranslatorMainForm";
             this.Text = "Garik Translator";
             this.ResumeLayout(false);
@@ -66,8 +67,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button addWordButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddWordButton;
+        private System.Windows.Forms.Button WordListButton;
     }
 }
 

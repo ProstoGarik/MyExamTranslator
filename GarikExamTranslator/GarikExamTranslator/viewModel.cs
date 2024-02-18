@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExamTranslatorClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,28 @@ namespace GarikExamTranslator
 {
     public class viewModel
     {
+        private List<WordClass> wordList;
+        public WordClass workinWithWord;
+
+        public viewModel() 
+        {
+            wordList = new List<WordClass>();
+        }
+
+        public void AddWord(string word, string translation) 
+        {
+            wordList.Add(new WordClass(word,translation, wordList.Count));
+        }
+
+        public string GenerateWordList()
+        {
+            string wordListString = "";
+            foreach (WordClass word in wordList) 
+            {
+                wordListString += (word.Index).ToString() + ") " + word.Word + " - " + word.Translation + "\n";
+            }
+            return wordListString;
+        }
         public void FormResizeCloseOpen(Form thisForm, Form newform, bool Close = false)
         {
             newform.Show();
@@ -22,6 +45,11 @@ namespace GarikExamTranslator
             {
                 thisForm.Hide();
             }
+        }
+
+        public void ClearWorkinWithWord()
+        {
+            workinWithWord = new WordClass();
         }
     }
 }
