@@ -15,32 +15,48 @@ namespace GarikExamTranslator
     {
         Form returnForm;
         viewModel viewModel;
-        bool isEditMode;
         private WordClass word;
-        public AddAndEditWordForm(Form returnForm, viewModel viewModel, bool isEditMode, WordClass word = null)
+        bool isEditMode = false;
+        public AddAndEditWordForm(Form returnForm, viewModel viewModel, bool isEditMode)
         {
             InitializeComponent();
             this.returnForm = returnForm;
             this.viewModel = viewModel;
-            this.isEditMode = isEditMode;
-            this.word = word;
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            viewModel.AddWord(WordInputTextBox.Text, TranslationInputTextBox.Text);
-            viewModel.FormResizeCloseOpen(this, returnForm);
+            if(isEditMode)
+            {
+                viewModel.EditWord(WordInputTextBox.Text, TranslationInputTextBox.Text);
+                viewModel.FormResizeCloseOpen(this, returnForm);
+                isEditMode = false;
+            }
+            else
+            {
+                viewModel.AddWord(WordInputTextBox.Text, TranslationInputTextBox.Text);
+                viewModel.FormResizeCloseOpen(this, returnForm);
+            }
+            viewModel.ResetChosenWord();
+            WordInputTextBox.Text = "";
+            TranslationInputTextBox.Text = "";
+
         }
 
         private void AddAndEditWordForm_Load(object sender, EventArgs e)
         {
-            
+            this.DoubleBuffered = true;
         }
 
-        private void AddAndEditWordForm_Shown(object sender, EventArgs e)
+        private void AddAndEditWordForm_Activated(object sender, EventArgs e)
         {
-            WordInputTextBox.Text = viewModel.workinWithWord.Word;
-            TranslationInputTextBox.Text = viewModel.workinWithWord.Translation;
+            if(viewModel.workinWithWord != null)
+            {
+                isEditMode = true;
+                this.word = viewModel.workinWithWord;
+                WordInputTextBox.Text = word.Word;
+                TranslationInputTextBox.Text = word.Translation;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExamTranslatorClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,16 +15,58 @@ namespace GarikExamTranslator
     {
         private viewModel viewModel;
         private TranslatorMainForm returnForm;
-        public WordListForm(TranslatorMainForm returnForm, viewModel viewModel)
+        private AddAndEditWordForm addAndEditWordForm;
+        public WordListForm(TranslatorMainForm returnForm, AddAndEditWordForm addAndEditWordForm, viewModel viewModel )
         {
             InitializeComponent();
             this.returnForm = returnForm;
             this.viewModel = viewModel;
+            this.addAndEditWordForm = addAndEditWordForm;
+        }
+
+        private void WordListForm_Activated(object sender, EventArgs e)
+        {
+            WordsLabel.Text = viewModel.GenerateWordList();
+            EditWordButton.Enabled = false;
+        }
+
+        private void DoneButton_Click(object sender, EventArgs e)
+        {
+            viewModel.FormResizeCloseOpen(this, returnForm);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                viewModel.ChooseWordByIndex(Convert.ToInt32(WordIndexInputTextBox.Text));
+                viewModel.FormResizeCloseOpen(this, addAndEditWordForm);
+            }
+            catch
+            {
+
+            }
+            
+            
         }
 
         private void WordListForm_Load(object sender, EventArgs e)
         {
-            WordsLabel.Text = viewModel.GenerateWordList();
+            this.DoubleBuffered = true;
+        }
+
+        private void IndexInputCheckLabel_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                IndexInputCheckLabel.Text = "Выбранное слово: " + 
+                    viewModel.GetWordByIndex(Convert.ToInt32(WordIndexInputTextBox.Text)).Word;
+                EditWordButton.Enabled = true;
+            }
+            catch
+            {
+                IndexInputCheckLabel.Text = "Неверный номер слова";
+            }
         }
     }
 }

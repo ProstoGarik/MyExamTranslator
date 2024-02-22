@@ -105,9 +105,9 @@
             this.Controls.Add(this.WordLabel);
             this.Controls.Add(this.AddEditLabel);
             this.Name = "AddAndEditWordForm";
-            this.Text = "AddAndEditWordForm";
+            this.Text = "Garik Translator";
+            this.Activated += new System.EventHandler(this.AddAndEditWordForm_Activated);
             this.Load += new System.EventHandler(this.AddAndEditWordForm_Load);
-            this.Shown += new System.EventHandler(this.AddAndEditWordForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

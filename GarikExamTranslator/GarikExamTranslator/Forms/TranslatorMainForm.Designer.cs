@@ -61,6 +61,7 @@
             this.Controls.Add(this.AddWordButton);
             this.Name = "TranslatorMainForm";
             this.Text = "Garik Translator";
+            this.Load += new System.EventHandler(this.TranslatorMainForm_Load);
             this.ResumeLayout(false);
 
         }

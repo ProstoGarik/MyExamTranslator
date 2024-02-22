@@ -21,19 +21,25 @@ namespace GarikExamTranslator
             InitializeComponent();
             viewModel = new viewModel();
             addAndEditWordForm = new AddAndEditWordForm(this, viewModel, false);
-            wordListForm = new WordListForm(this, viewModel);
+            wordListForm = new WordListForm(this, addAndEditWordForm, viewModel);
         }
 
 
         private void addWordButton_Click(object sender, EventArgs e)
         {
-            viewModel.ClearWorkinWithWord();
             viewModel.FormResizeCloseOpen(this, addAndEditWordForm);
         }
 
         private void WordListButton_Click(object sender, EventArgs e)
         {
             viewModel.FormResizeCloseOpen(this, wordListForm);
+        }
+
+        private void TranslatorMainForm_Load(object sender, EventArgs e)
+        {
+            this.DoubleBuffered = true;
+            viewModel.PreLoadForm(addAndEditWordForm);
+            viewModel.PreLoadForm(wordListForm);
         }
     }
 }
