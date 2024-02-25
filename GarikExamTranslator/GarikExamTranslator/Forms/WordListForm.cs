@@ -1,4 +1,5 @@
 ﻿using ExamTranslatorClassLibrary;
+using GarikExamTranslator.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace GarikExamTranslator
         private viewModel viewModel;
         private TranslatorMainForm returnForm;
         private AddAndEditWordForm addAndEditWordForm;
+        private WordTestForm wordTestForm;
+
         public WordListForm(TranslatorMainForm returnForm, AddAndEditWordForm addAndEditWordForm, viewModel viewModel )
         {
             InitializeComponent();
@@ -53,6 +56,7 @@ namespace GarikExamTranslator
         private void WordListForm_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
+            IndexInputCheckLabel.Text = "";
         }
 
         private void IndexInputCheckLabel_TextChanged(object sender, EventArgs e)
@@ -67,6 +71,13 @@ namespace GarikExamTranslator
             {
                 IndexInputCheckLabel.Text = "Неверный номер слова";
             }
+        }
+
+        private void StartTestButton_Click(object sender, EventArgs e)
+        {
+            wordTestForm = new WordTestForm(this, viewModel);
+            viewModel.CreateTestList();
+            viewModel.FormResizeCloseOpen(this, wordTestForm);
         }
     }
 }

@@ -37,6 +37,7 @@
             this.EnterWordIndexLabel = new System.Windows.Forms.Label();
             this.WordIndexInputTextBox = new System.Windows.Forms.TextBox();
             this.IndexInputCheckLabel = new System.Windows.Forms.Label();
+            this.StartTestButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,15 +108,27 @@
             this.IndexInputCheckLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IndexInputCheckLabel.Location = new System.Drawing.Point(468, 331);
             this.IndexInputCheckLabel.Name = "IndexInputCheckLabel";
-            this.IndexInputCheckLabel.Size = new System.Drawing.Size(320, 25);
+            this.IndexInputCheckLabel.Size = new System.Drawing.Size(84, 25);
             this.IndexInputCheckLabel.TabIndex = 10;
-            this.IndexInputCheckLabel.Text = "Введите номер слова в списке";
+            this.IndexInputCheckLabel.Text = "NoData";
+            // 
+            // StartTestButton
+            // 
+            this.StartTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartTestButton.Location = new System.Drawing.Point(559, 108);
+            this.StartTestButton.Name = "StartTestButton";
+            this.StartTestButton.Size = new System.Drawing.Size(229, 77);
+            this.StartTestButton.TabIndex = 11;
+            this.StartTestButton.Text = "Начать тест";
+            this.StartTestButton.UseVisualStyleBackColor = true;
+            this.StartTestButton.Click += new System.EventHandler(this.StartTestButton_Click);
             // 
             // WordListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.StartTestButton);
             this.Controls.Add(this.IndexInputCheckLabel);
             this.Controls.Add(this.WordIndexInputTextBox);
             this.Controls.Add(this.EnterWordIndexLabel);
@@ -143,5 +156,6 @@
         private System.Windows.Forms.Label EnterWordIndexLabel;
         private System.Windows.Forms.TextBox WordIndexInputTextBox;
         private System.Windows.Forms.Label IndexInputCheckLabel;
+        private System.Windows.Forms.Button StartTestButton;
     }
 }
