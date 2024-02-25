@@ -13,6 +13,7 @@ namespace GarikExamTranslator
     {
         public WordClass workinWithWord;
 
+        public FileManager fileManager;
         private List<WordClass> wordList;
         private List<WordClass> wordListForTest;
         private string wordListString = "";
@@ -20,6 +21,7 @@ namespace GarikExamTranslator
 
         public viewModel() 
         {
+            fileManager = new FileManager();
             wordList = new List<WordClass>();
         }
 
@@ -137,10 +139,13 @@ namespace GarikExamTranslator
 
         public bool CompareWords(string word1, string word2)
         {
-            return MakeFirstUpperCase(word1) == MakeFirstUpperCase(word1);
+            return MakeFirstUpperCase(word1) == MakeFirstUpperCase(word2);
         }
 
-
+        public void Save()
+        {
+            fileManager.SaveData(wordList);
+        }
 
 
     }

@@ -38,6 +38,7 @@
             this.WordIndexInputTextBox = new System.Windows.Forms.TextBox();
             this.IndexInputCheckLabel = new System.Windows.Forms.Label();
             this.StartTestButton = new System.Windows.Forms.Button();
+            this.SaveDataButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +124,23 @@
             this.StartTestButton.UseVisualStyleBackColor = true;
             this.StartTestButton.Click += new System.EventHandler(this.StartTestButton_Click);
             // 
+            // SaveDataButton
+            // 
+            this.SaveDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveDataButton.Location = new System.Drawing.Point(314, 12);
+            this.SaveDataButton.Name = "SaveDataButton";
+            this.SaveDataButton.Size = new System.Drawing.Size(229, 77);
+            this.SaveDataButton.TabIndex = 12;
+            this.SaveDataButton.Text = "Сохранить";
+            this.SaveDataButton.UseVisualStyleBackColor = true;
+            this.SaveDataButton.Click += new System.EventHandler(this.SaveDataButton_Click);
+            // 
             // WordListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SaveDataButton);
             this.Controls.Add(this.StartTestButton);
             this.Controls.Add(this.IndexInputCheckLabel);
             this.Controls.Add(this.WordIndexInputTextBox);
@@ -157,5 +170,6 @@
         private System.Windows.Forms.TextBox WordIndexInputTextBox;
         private System.Windows.Forms.Label IndexInputCheckLabel;
         private System.Windows.Forms.Button StartTestButton;
+        private System.Windows.Forms.Button SaveDataButton;
     }
 }

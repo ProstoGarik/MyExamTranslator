@@ -79,5 +79,10 @@ namespace GarikExamTranslator
             viewModel.CreateTestList();
             viewModel.FormResizeCloseOpen(this, wordTestForm);
         }
+
+        private void SaveDataButton_Click(object sender, EventArgs e)
+        {
+            viewModel.Save();
+        }
     }
 }
