@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranslatorMainForm));
             this.AddWordButton = new System.Windows.Forms.Button();
             this.WordListButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.WordListButton);
             this.Controls.Add(this.AddWordButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TranslatorMainForm";
             this.Text = "Garik Translator";
             this.Load += new System.EventHandler(this.TranslatorMainForm_Load);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAndEditWordForm));
             this.AddEditLabel = new System.Windows.Forms.Label();
             this.WordLabel = new System.Windows.Forms.Label();
             this.TranslationLabel = new System.Windows.Forms.Label();
@@ -104,6 +105,7 @@
             this.Controls.Add(this.TranslationLabel);
             this.Controls.Add(this.WordLabel);
             this.Controls.Add(this.AddEditLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAndEditWordForm";
             this.Text = "Garik Translator";
             this.Activated += new System.EventHandler(this.AddAndEditWordForm_Activated);

@@ -1,6 +1,6 @@
 ﻿namespace GarikExamTranslator.Custom
 {
-    partial class CustomControl1
+    partial class MyControlPanel
     {
         /// <summary>
         /// Required designer variable.

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordTestForm));
             this.WordTestUpperLabel = new System.Windows.Forms.Label();
             this.WordTaskLabel = new System.Windows.Forms.Label();
             this.WordTranslationLabel = new System.Windows.Forms.Label();
@@ -143,6 +144,7 @@
             this.Controls.Add(this.WordTranslationLabel);
             this.Controls.Add(this.WordTaskLabel);
             this.Controls.Add(this.WordTestUpperLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WordTestForm";
             this.Text = "Garik Translator";
             this.Load += new System.EventHandler(this.WordTestForm_Load);

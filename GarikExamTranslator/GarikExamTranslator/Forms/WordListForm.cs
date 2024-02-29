@@ -30,15 +30,7 @@ namespace GarikExamTranslator
 
         private void WordListForm_Activated(object sender, EventArgs e)
         {
-            //WordsLabel.Text = viewModel.GenerateWordList();
-            Point tempLocation = new Point(WordListUpperLabel.Location.X, WordListUpperLabel.Location.Y);
-            for (int i = 0; i < viewModel.GetWordListCount(); i++)
-            {
-                Button button = new Button();
-                button.Location = new Point(tempLocation.X, tempLocation.Y + 10);
-                Controls.Add(button);
-            }
-            EditWordButton.Enabled = false;
+            WordsLabel.Text = viewModel.GenerateWordList();
         }
 
         private void DoneButton_Click(object sender, EventArgs e)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordListForm));
             this.WordListUpperLabel = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.WordsLabel = new System.Windows.Forms.Label();
@@ -149,6 +150,7 @@
             this.Controls.Add(this.ReturnToMenuButton);
             this.Controls.Add(this.WordsLabel);
             this.Controls.Add(this.WordListUpperLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WordListForm";
             this.Text = "Garik Translator";
             this.Activated += new System.EventHandler(this.WordListForm_Activated);

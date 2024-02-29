@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GarikExamTranslator.Custom
 {
-    public partial class CustomControl1 : Control
+    public partial class MyControlPanel : Panel
     {
-        public CustomControl1()
+        public MyControlPanel()
         {
             InitializeComponent();
         }
