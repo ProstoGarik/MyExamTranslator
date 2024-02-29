@@ -1,6 +1,7 @@
 ﻿using ExamTranslatorClassLibrary;
 using GarikExamTranslator.Forms;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,14 @@ namespace GarikExamTranslator
 
         private void WordListForm_Activated(object sender, EventArgs e)
         {
-            WordsLabel.Text = viewModel.GenerateWordList();
+            //WordsLabel.Text = viewModel.GenerateWordList();
+            Point tempLocation = new Point(WordListUpperLabel.Location.X, WordListUpperLabel.Location.Y);
+            for (int i = 0; i < viewModel.GetWordListCount(); i++)
+            {
+                Button button = new Button();
+                button.Location = new Point(tempLocation.X, tempLocation.Y + 10);
+                Controls.Add(button);
+            }
             EditWordButton.Enabled = false;
         }
 
@@ -49,8 +57,6 @@ namespace GarikExamTranslator
             {
 
             }
-            
-            
         }
 
         private void WordListForm_Load(object sender, EventArgs e)
@@ -66,10 +72,13 @@ namespace GarikExamTranslator
                 IndexInputCheckLabel.Text = "Выбранное слово: " + 
                     viewModel.GetWordByIndex(Convert.ToInt32(WordIndexInputTextBox.Text)).Word;
                 EditWordButton.Enabled = true;
+                DeleteWordButton.Enabled = true;
             }
             catch
             {
                 IndexInputCheckLabel.Text = "Неверный номер слова";
+                EditWordButton.Enabled = false;
+                DeleteWordButton.Enabled = false;
             }
         }
 
@@ -80,9 +89,19 @@ namespace GarikExamTranslator
             viewModel.FormResizeCloseOpen(this, wordTestForm);
         }
 
-        private void SaveDataButton_Click(object sender, EventArgs e)
+        private void DeleteWordButton_Click(object sender, EventArgs e)
         {
-            viewModel.Save();
+            try
+            {
+                viewModel.DeleteByIndex(Convert.ToInt32(WordIndexInputTextBox.Text));
+                IndexInputCheckLabel.Text = "Слово удалено";
+                WordsLabel.Text = viewModel.GenerateWordList();
+                viewModel.Save();
+            }
+            catch
+            {
+                
+            }
         }
     }
 }

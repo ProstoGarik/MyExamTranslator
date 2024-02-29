@@ -38,7 +38,7 @@
             this.WordIndexInputTextBox = new System.Windows.Forms.TextBox();
             this.IndexInputCheckLabel = new System.Windows.Forms.Label();
             this.StartTestButton = new System.Windows.Forms.Button();
-            this.SaveDataButton = new System.Windows.Forms.Button();
+            this.DeleteWordButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,10 +75,10 @@
             // 
             // EditWordButton
             // 
-            this.EditWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditWordButton.Location = new System.Drawing.Point(528, 372);
+            this.EditWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditWordButton.Location = new System.Drawing.Point(470, 372);
             this.EditWordButton.Name = "EditWordButton";
-            this.EditWordButton.Size = new System.Drawing.Size(202, 66);
+            this.EditWordButton.Size = new System.Drawing.Size(156, 66);
             this.EditWordButton.TabIndex = 7;
             this.EditWordButton.Text = "Редактировать";
             this.EditWordButton.UseVisualStyleBackColor = true;
@@ -124,23 +124,23 @@
             this.StartTestButton.UseVisualStyleBackColor = true;
             this.StartTestButton.Click += new System.EventHandler(this.StartTestButton_Click);
             // 
-            // SaveDataButton
+            // DeleteWordButton
             // 
-            this.SaveDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveDataButton.Location = new System.Drawing.Point(314, 12);
-            this.SaveDataButton.Name = "SaveDataButton";
-            this.SaveDataButton.Size = new System.Drawing.Size(229, 77);
-            this.SaveDataButton.TabIndex = 12;
-            this.SaveDataButton.Text = "Сохранить";
-            this.SaveDataButton.UseVisualStyleBackColor = true;
-            this.SaveDataButton.Click += new System.EventHandler(this.SaveDataButton_Click);
+            this.DeleteWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteWordButton.Location = new System.Drawing.Point(632, 372);
+            this.DeleteWordButton.Name = "DeleteWordButton";
+            this.DeleteWordButton.Size = new System.Drawing.Size(156, 66);
+            this.DeleteWordButton.TabIndex = 12;
+            this.DeleteWordButton.Text = "Удалить";
+            this.DeleteWordButton.UseVisualStyleBackColor = true;
+            this.DeleteWordButton.Click += new System.EventHandler(this.DeleteWordButton_Click);
             // 
             // WordListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.SaveDataButton);
+            this.Controls.Add(this.DeleteWordButton);
             this.Controls.Add(this.StartTestButton);
             this.Controls.Add(this.IndexInputCheckLabel);
             this.Controls.Add(this.WordIndexInputTextBox);
@@ -170,6 +170,6 @@
         private System.Windows.Forms.TextBox WordIndexInputTextBox;
         private System.Windows.Forms.Label IndexInputCheckLabel;
         private System.Windows.Forms.Button StartTestButton;
-        private System.Windows.Forms.Button SaveDataButton;
+        private System.Windows.Forms.Button DeleteWordButton;
     }
 }

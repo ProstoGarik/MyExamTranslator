@@ -14,42 +14,42 @@ namespace GarikExamTranslator
         public WordClass workinWithWord;
 
         public FileManager fileManager;
-        private List<WordClass> wordList;
-        private List<WordClass> wordListForTest;
-        private string wordListString = "";
-        Random random = new Random();
-
+        private WordListClass wordList;
+        private WordListClass wordListForTest;
         public viewModel() 
         {
             fileManager = new FileManager();
-            wordList = new List<WordClass>();
-        }
-
-        public void AddWord(string word, string translation) 
-        {
-            word = word.Trim();
-            translation = translation.Trim();
-            if(word != "" && translation != "")
+            wordList = new WordListClass();
+            wordListForTest = new WordListClass();
+            try
             {
-                word = MakeFirstUpperCase(word);
-                translation = MakeFirstUpperCase(translation);
-                wordList.Add(new WordClass(word, translation, wordList.Count));
+                Load();
+            }
+            catch
+            {
+
             }
             
         }
+
+        public void AddWord(string word, string translation)
+        {
+            wordList.AddWord(word, translation);
+        }
+
         public void EditWord(string newWord, string newTranslation)
         {
-            wordList[workinWithWord.Index] = new WordClass(newWord, newTranslation, workinWithWord.Index);
+            wordList.EditWord(newWord, newTranslation);
+        }
+
+        public void DeleteByIndex(int index)
+        {
+            wordList.DeleteByIndex(index);
         }
 
         public string GenerateWordList()
         {
-            wordListString = "";
-            foreach (WordClass word in wordList) 
-            {
-                wordListString += (word.Index+1).ToString() + ") " + word.Word + " - " + word.Translation + "\n";
-            }
-            return wordListString;
+            return wordList.GenerateWordList();
         }
 
         public void PreLoadForm(Form form)
@@ -75,55 +75,33 @@ namespace GarikExamTranslator
 
         public void ChooseWordByIndex(int index)
         {
-            workinWithWord = wordList[index - 1];
+            wordList.TargetWordByIndex(index);
         }
 
-        public WordClass GetWordByIndex(int index, bool isTest = false)
+        public WordClass GetTargetWord()
         {
-            if(!isTest)
-            {
-                return wordList[index - 1];
-            }
-            else
-            {
-                return wordListForTest[index-1];
-            }
+            return wordList.GetTargetWord();
         }
 
-        public int GetWordListCount(bool isTest = false)
+        public WordClass GetWordByIndex(int index)
         {
-            if (!isTest)
-            {
-                return wordList.Count;
-            }
-            else
-            {
-                return wordListForTest.Count;
-            }
+            return wordList.GetWordByIndex(index);
+        }
+
+        public int GetWordListCount()
+        {
+            return wordList.GetWordListCount();
         }
 
         public void ResetChosenWord()
         {
-            workinWithWord = null;
+            wordList.ResetTargetWord();
         }
 
         public void CreateTestList()
         {
             wordListForTest = wordList;
-            RandomizeList(wordListForTest);
-        }
-
-        private void RandomizeList(List<WordClass> list)
-        {
-            int n = list.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                WordClass value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
+            wordListForTest.RandomizeList();
         }
 
         private string MakeFirstUpperCase(string str)
@@ -147,6 +125,10 @@ namespace GarikExamTranslator
             fileManager.SaveData(wordList);
         }
 
+        public void Load()
+        {
+            wordList = fileManager.LoadData();
+        }
 
     }
 }

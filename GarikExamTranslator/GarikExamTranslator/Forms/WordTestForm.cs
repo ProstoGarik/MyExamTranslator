@@ -35,9 +35,8 @@ namespace GarikExamTranslator.Forms
             try
             {
                 TestCounterLabel.Text = wordCounter.ToString() + " из " + viewModel.GetWordListCount().ToString();
-                MainWordLabel.Text = viewModel.GetWordByIndex(wordCounter, true).Word;
+                MainWordLabel.Text = viewModel.GetWordByIndex(wordCounter).Word;
                 wordCounter++;
-                
             }
             catch
             {
@@ -54,7 +53,7 @@ namespace GarikExamTranslator.Forms
 
         private void AnswerButton_Click(object sender, EventArgs e)
         {
-            if (viewModel.CompareWords(TranslationInputTextBox.Text, viewModel.GetWordByIndex(wordCounter-1, true).Translation))
+            if (viewModel.CompareWords(TranslationInputTextBox.Text, viewModel.GetWordByIndex(wordCounter-1).Translation))
             {
                 correctAnswerCounter++;
             }

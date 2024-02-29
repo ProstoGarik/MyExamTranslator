@@ -10,6 +10,7 @@ namespace ExamTranslatorClassLibrary
 {
     public class FileManager
     {
+
         public const string FileName = "data.xml";
 
         public const string DirectoryName = "Translator";
@@ -20,11 +21,26 @@ namespace ExamTranslatorClassLibrary
 
         public string SourceDirectory => Path.Combine(_source, DirectoryName);
 
-        public void SaveData(List<WordClass> data)
+        public void SaveData(WordListClass data)
         {
             CreateDataSource();
 
-            WriteCardListData(data);
+            WriteWordListData(data);
+        }
+
+        public WordListClass LoadData()
+        {
+            CreateDataSource();
+
+            using (StreamReader reader = new StreamReader(Source))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(WordListClass));
+                WordListClass data = (WordListClass)serializer.Deserialize(reader);
+
+                return data;
+            }
+
+            
         }
 
         private void CreateDataSource()
@@ -42,14 +58,14 @@ namespace ExamTranslatorClassLibrary
             // Даже если сохранять нечего
             // В любом случае мы создадим корректную xml основу
             // И пустой файл превратится в читаемый программой источник
-            WriteCardListData(new List<WordClass>());
+            WriteWordListData(new WordListClass());
         }
 
-        private void WriteCardListData(List<WordClass> data)
+        private void WriteWordListData(WordListClass data)
         {
             using (StreamWriter writer = new StreamWriter(Source))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(List<WordClass>));
+                XmlSerializer serializer = new XmlSerializer(typeof(WordListClass));
 
                 serializer.Serialize(writer, data);
             }

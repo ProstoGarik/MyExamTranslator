@@ -40,6 +40,7 @@ namespace GarikExamTranslator
             viewModel.ResetChosenWord();
             WordInputTextBox.Text = "";
             TranslationInputTextBox.Text = "";
+            viewModel.Save();
 
         }
 
@@ -50,10 +51,10 @@ namespace GarikExamTranslator
 
         private void AddAndEditWordForm_Activated(object sender, EventArgs e)
         {
-            if(viewModel.workinWithWord != null)
+            if(viewModel.GetTargetWord() != null)
             {
                 isEditMode = true;
-                this.word = viewModel.workinWithWord;
+                this.word = viewModel.GetTargetWord();
                 WordInputTextBox.Text = word.Word;
                 TranslationInputTextBox.Text = word.Translation;
             }
