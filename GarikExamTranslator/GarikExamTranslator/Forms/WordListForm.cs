@@ -1,4 +1,5 @@
 ﻿using ExamTranslatorClassLibrary;
+using GarikExamTranslator.Custom;
 using GarikExamTranslator.Forms;
 using System;
 using System.CodeDom.Compiler;
@@ -30,7 +31,18 @@ namespace GarikExamTranslator
 
         private void WordListForm_Activated(object sender, EventArgs e)
         {
-            WordsLabel.Text = viewModel.GenerateWordList();
+            //WordsLabel.Text = viewModel.GenerateWordList();
+            MyControlPanel wordsPanel = new MyControlPanel(viewModel);
+            wordsPanel.Location = new Point(10, 35);
+            wordsPanel.Size = new Size(400, 400);
+            wordsPanel.BorderStyle = BorderStyle.FixedSingle;
+            this.Controls.Add(wordsPanel);
+
+            for (int i = 1; i < viewModel.GetWordListCount()+1; i++)
+            {
+                wordsPanel.AddWordLabel(i);
+            }
+            
         }
 
         private void DoneButton_Click(object sender, EventArgs e)

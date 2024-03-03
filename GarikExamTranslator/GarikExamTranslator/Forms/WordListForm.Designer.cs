@@ -57,7 +57,7 @@
             // 
             this.WordsLabel.AutoSize = true;
             this.WordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.WordsLabel.Location = new System.Drawing.Point(13, 45);
+            this.WordsLabel.Location = new System.Drawing.Point(404, 29);
             this.WordsLabel.Name = "WordsLabel";
             this.WordsLabel.Size = new System.Drawing.Size(92, 24);
             this.WordsLabel.TabIndex = 1;

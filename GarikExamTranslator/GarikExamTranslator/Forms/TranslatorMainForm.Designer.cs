@@ -35,6 +35,7 @@
             // 
             // AddWordButton
             // 
+            this.AddWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddWordButton.Location = new System.Drawing.Point(12, 12);
             this.AddWordButton.Name = "AddWordButton";
             this.AddWordButton.Size = new System.Drawing.Size(219, 75);
@@ -45,6 +46,7 @@
             // 
             // WordListButton
             // 
+            this.WordListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WordListButton.Location = new System.Drawing.Point(569, 12);
             this.WordListButton.Name = "WordListButton";
             this.WordListButton.Size = new System.Drawing.Size(219, 75);
