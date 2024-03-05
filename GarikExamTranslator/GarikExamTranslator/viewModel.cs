@@ -24,6 +24,7 @@ namespace GarikExamTranslator
             try
             {
                 Load();
+                wordList.ResetTargetWord();
             }
             catch
             {
@@ -42,14 +43,9 @@ namespace GarikExamTranslator
             wordList.EditWord(newWord, newTranslation);
         }
 
-        public void DeleteByIndex(int index)
+        public void DeleteWord()
         {
-            wordList.DeleteByIndex(index);
-        }
-
-        public string GenerateWordList()
-        {
-            return wordList.GenerateWordList();
+            wordList.DeleteWord();
         }
 
         public void PreLoadForm(Form form)

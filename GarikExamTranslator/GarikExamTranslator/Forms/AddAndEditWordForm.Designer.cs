@@ -35,6 +35,7 @@
             this.WordInputTextBox = new System.Windows.Forms.TextBox();
             this.TranslationInputTextBox = new System.Windows.Forms.TextBox();
             this.DoneButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddEditLabel
@@ -94,11 +95,23 @@
             this.DoneButton.UseVisualStyleBackColor = true;
             this.DoneButton.Click += new System.EventHandler(this.DoneButton_Click);
             // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteButton.Location = new System.Drawing.Point(559, 361);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(229, 77);
+            this.DeleteButton.TabIndex = 6;
+            this.DeleteButton.Text = "Удалить слово";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // AddAndEditWordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.TranslationInputTextBox);
             this.Controls.Add(this.WordInputTextBox);
@@ -123,5 +136,6 @@
         private System.Windows.Forms.TextBox WordInputTextBox;
         private System.Windows.Forms.TextBox TranslationInputTextBox;
         private System.Windows.Forms.Button DoneButton;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

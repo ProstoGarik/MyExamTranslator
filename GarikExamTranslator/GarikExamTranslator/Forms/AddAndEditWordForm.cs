@@ -37,11 +37,7 @@ namespace GarikExamTranslator
                 viewModel.AddWord(WordInputTextBox.Text, TranslationInputTextBox.Text);
                 viewModel.FormResizeCloseOpen(this, returnForm);
             }
-            viewModel.ResetChosenWord();
-            WordInputTextBox.Text = "";
-            TranslationInputTextBox.Text = "";
-            viewModel.Save();
-
+            SaveNClear();
         }
 
         private void AddAndEditWordForm_Load(object sender, EventArgs e)
@@ -54,10 +50,34 @@ namespace GarikExamTranslator
             if(viewModel.GetTargetWord() != null)
             {
                 isEditMode = true;
+                DeleteButton.Enabled = true;
+                DeleteButton.Visible = true;
                 this.word = viewModel.GetTargetWord();
                 WordInputTextBox.Text = word.Word;
                 TranslationInputTextBox.Text = word.Translation;
             }
+            else
+            {
+                DeleteButton.Enabled = false;
+                DeleteButton.Visible = false;
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            viewModel.DeleteWord();
+            viewModel.FormResizeCloseOpen(this, returnForm);
+            isEditMode = false;
+            SaveNClear();
+
+        }
+
+        private void SaveNClear()
+        {
+            WordInputTextBox.Text = "";
+            TranslationInputTextBox.Text = "";
+            viewModel.ResetChosenWord();
+            viewModel.Save();
         }
     }
 }

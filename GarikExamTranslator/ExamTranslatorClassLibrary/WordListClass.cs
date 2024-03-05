@@ -43,10 +43,10 @@ namespace ExamTranslatorClassLibrary
             }
         }
 
-        public void DeleteByIndex(int index)
+        public void DeleteWord()
         {
-            wordList.RemoveAt(index - 1);
-            for (int i = 0; i < wordList.Count; i++)
+            wordList.RemoveAt(targetWord.Index);
+            for (int i = 0; i < wordList.Count-1; i++)
             {
                 wordList[i].Index = i;
             }
@@ -57,20 +57,9 @@ namespace ExamTranslatorClassLibrary
             wordList[targetWord.Index] = new WordClass(newWord, newTranslation, targetWord.Index);
         }
 
-        public string GenerateWordList()
-        {
-            WordListString = "";
-            foreach (WordClass word in wordList)
-            {
-                WordListString += (word.Index + 1).ToString() + ") " + word.Word + " - " + word.Translation + "\n";
-                //Прибавляет 1 к индексу слова, чтобы список для пользователя не начинался с нуля
-            }
-            return WordListString;
-        }
-
         public void TargetWordByIndex(int index)
         {
-            TargetWord = wordList[index - 1];
+            TargetWord = wordList[index-1];
         }
 
         public void ResetTargetWord()

@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MyWordLabel
+            // 
+            this.Text = "8";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

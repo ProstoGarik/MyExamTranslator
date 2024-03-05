@@ -16,9 +16,11 @@ namespace GarikExamTranslator.Custom
         private string word;
         private string translation;
         private int wordIndex;
+        AddAndEditWordForm addAndEditWordForm;
+        Form thisForm;
 
 
-        public MyWordLabel(int wordIndex, viewModel viewModel)
+        public MyWordLabel(int wordIndex, viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm)
         {
             InitializeComponent();
             this.viewModel = viewModel;
@@ -26,7 +28,8 @@ namespace GarikExamTranslator.Custom
             this.word = viewModel.GetWordByIndex(wordIndex).Word;
             this.translation = viewModel.GetWordByIndex(wordIndex).Translation;
             this.MaximumSize = new Size(350, 500);
-
+            this.addAndEditWordForm = addAndEditWordForm;
+            this.thisForm = thisForm;
 
         }
 
@@ -42,6 +45,13 @@ namespace GarikExamTranslator.Custom
             this.Font = new Font("", 14, FontStyle.Regular);
             this.Text = (wordIndex).ToString() + ") " + word + " - " + translation;
             this.AutoSize = true;
+        }
+
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            viewModel.ChooseWordByIndex(this.wordIndex);
+            viewModel.FormResizeCloseOpen(thisForm, addAndEditWordForm);
         }
     }
 }

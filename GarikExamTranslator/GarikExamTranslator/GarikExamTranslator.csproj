@@ -85,6 +85,9 @@
     <Compile Include="Forms\WordListForm.Designer.cs">
       <DependentUpon>WordListForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Custom\MyWordLabel.resx">
+      <DependentUpon>MyWordLabel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddAndEditWordForm.resx">
       <DependentUpon>AddAndEditWordForm.cs</DependentUpon>
     </EmbeddedResource>

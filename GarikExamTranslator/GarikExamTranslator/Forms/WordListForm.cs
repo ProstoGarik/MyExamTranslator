@@ -20,6 +20,7 @@ namespace GarikExamTranslator
         private TranslatorMainForm returnForm;
         private AddAndEditWordForm addAndEditWordForm;
         private WordTestForm wordTestForm;
+        MyControlPanel wordsPanel;
 
         public WordListForm(TranslatorMainForm returnForm, AddAndEditWordForm addAndEditWordForm, viewModel viewModel )
         {
@@ -31,18 +32,7 @@ namespace GarikExamTranslator
 
         private void WordListForm_Activated(object sender, EventArgs e)
         {
-            //WordsLabel.Text = viewModel.GenerateWordList();
-            MyControlPanel wordsPanel = new MyControlPanel(viewModel);
-            wordsPanel.Location = new Point(10, 35);
-            wordsPanel.Size = new Size(400, 400);
-            wordsPanel.BorderStyle = BorderStyle.FixedSingle;
-            this.Controls.Add(wordsPanel);
-
-            for (int i = 1; i < viewModel.GetWordListCount()+1; i++)
-            {
-                wordsPanel.AddWordLabel(i);
-            }
-            
+            wordsPanel.GenerateWordList();
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -50,40 +40,14 @@ namespace GarikExamTranslator
             viewModel.FormResizeCloseOpen(this, returnForm);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                viewModel.ChooseWordByIndex(Convert.ToInt32(WordIndexInputTextBox.Text));
-                viewModel.FormResizeCloseOpen(this, addAndEditWordForm);
-            }
-            catch
-            {
-
-            }
-        }
-
         private void WordListForm_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-            IndexInputCheckLabel.Text = "";
-        }
-
-        private void IndexInputCheckLabel_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                IndexInputCheckLabel.Text = "Выбранное слово: " + 
-                    viewModel.GetWordByIndex(Convert.ToInt32(WordIndexInputTextBox.Text)).Word;
-                EditWordButton.Enabled = true;
-                DeleteWordButton.Enabled = true;
-            }
-            catch
-            {
-                IndexInputCheckLabel.Text = "Неверный номер слова";
-                EditWordButton.Enabled = false;
-                DeleteWordButton.Enabled = false;
-            }
+            wordsPanel = new MyControlPanel(viewModel, addAndEditWordForm, this);
+            wordsPanel.Location = new Point(10, 35);
+            wordsPanel.Size = new Size(400, 400);
+            wordsPanel.BorderStyle = BorderStyle.FixedSingle;
+            this.Controls.Add(wordsPanel);
         }
 
         private void StartTestButton_Click(object sender, EventArgs e)
@@ -91,21 +55,6 @@ namespace GarikExamTranslator
             wordTestForm = new WordTestForm(this, viewModel);
             viewModel.CreateTestList();
             viewModel.FormResizeCloseOpen(this, wordTestForm);
-        }
-
-        private void DeleteWordButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                viewModel.DeleteByIndex(Convert.ToInt32(WordIndexInputTextBox.Text));
-                IndexInputCheckLabel.Text = "Слово удалено";
-                WordsLabel.Text = viewModel.GenerateWordList();
-                viewModel.Save();
-            }
-            catch
-            {
-                
-            }
         }
     }
 }
