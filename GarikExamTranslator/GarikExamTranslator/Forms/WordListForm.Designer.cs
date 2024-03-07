@@ -81,6 +81,7 @@
             this.Name = "WordListForm";
             this.Text = "Garik Translator";
             this.Activated += new System.EventHandler(this.WordListForm_Activated);
+            this.Deactivate += new System.EventHandler(this.WordListForm_Deactivate);
             this.Load += new System.EventHandler(this.WordListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);

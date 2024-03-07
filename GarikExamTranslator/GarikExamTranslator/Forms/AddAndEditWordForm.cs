@@ -69,7 +69,6 @@ namespace GarikExamTranslator
             viewModel.FormResizeCloseOpen(this, returnForm);
             isEditMode = false;
             SaveNClear();
-
         }
 
         private void SaveNClear()

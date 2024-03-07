@@ -12,6 +12,7 @@ namespace ExamTranslatorClassLibrary
         private string wordListString; //Тот же wordList, только в виде строки
         private WordClass targetWord; //"Отмеченное" слово, с которым в дальнейшем происходит редактирование 
 
+        [NonSerialized]
         private Random random;
 
         public WordListClass() {
@@ -19,9 +20,9 @@ namespace ExamTranslatorClassLibrary
             WordListString = "";
             Random = new Random();
         }
-
         private string MakeFirstUpperCase(string str) // Делает первую букву строки большой, 
         {
+            str.ToUpper();
             try
             {
                 str = str.Insert(0, Char.ToUpper(Convert.ToChar(str[0])).ToString());
@@ -46,7 +47,7 @@ namespace ExamTranslatorClassLibrary
         public void DeleteWord()
         {
             wordList.RemoveAt(targetWord.Index);
-            for (int i = 0; i < wordList.Count-1; i++)
+            for (int i = 0; i < wordList.Count; i++)
             {
                 wordList[i].Index = i;
             }

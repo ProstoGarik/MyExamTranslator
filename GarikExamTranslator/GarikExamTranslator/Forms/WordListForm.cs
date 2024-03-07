@@ -56,5 +56,10 @@ namespace GarikExamTranslator
             viewModel.CreateTestList();
             viewModel.FormResizeCloseOpen(this, wordTestForm);
         }
+
+        private void WordListForm_Deactivate(object sender, EventArgs e)
+        {
+            wordsPanel.ResetWordList();
+        }
     }
 }
