@@ -38,7 +38,7 @@ namespace GarikExamTranslator
             wordList.AddWord(word, translation);
         }
 
-        public void EditWord(string newWord, string newTranslation, string newGroup)
+        public void EditWord(string newWord, string newTranslation)
         {
             wordList.EditWord(newWord, newTranslation);
         }
