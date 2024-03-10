@@ -16,15 +16,17 @@ namespace GarikExamTranslator.Custom
         private string word;
         private string translation;
         private int wordIndex;
+        private int queueNum;
         AddAndEditWordForm addAndEditWordForm;
         Form thisForm;
 
 
-        public MyWordLabel(int wordIndex, viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm)
+        public MyWordLabel(int wordIndex, int queueNum, viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm)
         {
             InitializeComponent();
             this.viewModel = viewModel;
             this.wordIndex = wordIndex;
+            this.queueNum = queueNum;
             this.word = viewModel.GetWordByIndex(wordIndex).Word;
             this.translation = viewModel.GetWordByIndex(wordIndex).Translation;
             this.MaximumSize = new Size(350, 500);
@@ -43,7 +45,7 @@ namespace GarikExamTranslator.Custom
         {
             base.OnCreateControl();
             this.Font = new Font("", 14, FontStyle.Regular);
-            this.Text = (wordIndex).ToString() + ") " + word + " - " + translation;
+            this.Text = (queueNum).ToString() + ") " + word + " - " + translation;
             this.AutoSize = true;
         }
 

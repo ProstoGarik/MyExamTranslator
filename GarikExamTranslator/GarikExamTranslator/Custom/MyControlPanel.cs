@@ -19,6 +19,7 @@ namespace GarikExamTranslator.Custom
         private Stack<Control> labelStack;
         private AddAndEditWordForm addAndEditWordForm;
         private Form thisForm;
+        private int queueNum = 1;
 
         public MyControlPanel(viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm)
         {
@@ -46,10 +47,11 @@ namespace GarikExamTranslator.Custom
 
         private void AddWordLabel(int wordIndex)
         {
-            MyWordLabel wordLabel = new MyWordLabel(wordIndex, viewModel, addAndEditWordForm, thisForm);
+            MyWordLabel wordLabel = new MyWordLabel(wordIndex, queueNum, viewModel, addAndEditWordForm, thisForm);
             wordLabel.Location = new Point(tempLocation.X, tempLocation.Y);
             this.Controls.Add(wordLabel);
             tempLocation = new Point(tempLocation.X, tempLocation.Y + wordLabel.Size.Height + 10);
+            queueNum++;
             labelStack.Push(wordLabel);
         }
 
@@ -60,6 +62,7 @@ namespace GarikExamTranslator.Custom
                 this.Controls.Remove(labelStack.Pop());
             }
             tempLocation = new Point(this.Location.X + 5, this.Location.Y + 10);
+            queueNum = 1;
         }
 
         public void GenerateWordList()
