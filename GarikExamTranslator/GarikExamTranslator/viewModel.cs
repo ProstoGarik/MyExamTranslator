@@ -13,12 +13,12 @@ namespace GarikExamTranslator
     {
         public WordClass workinWithWord;
 
-        public FileManager fileManager;
+        public IFileManager fileManager;
         private WordListClass wordList;
         private WordListClass wordListForTest;
         public viewModel() 
         {
-            fileManager = new FileManager();
+            fileManager = new FileManagerLocal();
             wordList = new WordListClass();
             wordListForTest = new WordListClass();
             try
@@ -38,7 +38,7 @@ namespace GarikExamTranslator
             wordList.AddWord(word, translation);
         }
 
-        public void EditWord(string newWord, string newTranslation)
+        public void EditWord(string newWord, string newTranslation, string newGroup)
         {
             wordList.EditWord(newWord, newTranslation);
         }

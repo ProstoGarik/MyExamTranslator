@@ -59,15 +59,5 @@ namespace GarikExamTranslator.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon BookIcon {
-            get {
-                object obj = ResourceManager.GetObject("BookIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
     }
 }

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace ExamTranslatorClassLibrary
 {
-    public class FileManager
+    public class FileManagerLocal : IFileManager
     {
 
         public const string FileName = "data.xml";
