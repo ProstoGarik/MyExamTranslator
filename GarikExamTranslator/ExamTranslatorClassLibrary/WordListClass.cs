@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace ExamTranslatorClassLibrary
         private List<WordClass> wordList;
         private string wordListString; //Тот же wordList, только в виде строки
         private WordClass targetWord; //"Отмеченное" слово, с которым в дальнейшем происходит редактирование 
+        private List<string> wordGroups;
 
         [NonSerialized]
         private Random random;
@@ -32,7 +34,7 @@ namespace ExamTranslatorClassLibrary
             catch { return str; } // Если не получается, то возвращает изначальное слово
         }
 
-        public void AddWord(string word, string translation)
+        public void AddWord(string word, string translation, string group)
         {
             word = word.Trim();
             translation = translation.Trim();
@@ -40,8 +42,15 @@ namespace ExamTranslatorClassLibrary
             {
                 word = MakeFirstUpperCase(word);
                 translation = MakeFirstUpperCase(translation);
-                wordList.Add(new WordClass(word, translation, wordList.Count));
+                WordClass addedWord = new WordClass(word, translation, wordList.Count, group);
+                if (!WordGroups.Contains(group))
+                {
+                    WordGroups.Add(group);
+                }
+                wordList.Add(addedWord);
             }
+
+            
         }
 
         public void DeleteWord()
@@ -53,9 +62,13 @@ namespace ExamTranslatorClassLibrary
             }
         }
 
-        public void EditWord(string newWord, string newTranslation)
+        public void EditWord(string newWord, string newTranslation, string newGroup)
         {
-            wordList[targetWord.Index] = new WordClass(newWord, newTranslation, targetWord.Index);
+            wordList[targetWord.Index] = new WordClass(newWord, newTranslation, targetWord.Index, newGroup);
+            if (!WordGroups.Contains(newGroup))
+            {
+                WordGroups.Add(newGroup);
+            }
         }
 
         public void TargetWordByIndex(int index)
@@ -103,11 +116,21 @@ namespace ExamTranslatorClassLibrary
             }
         }
 
+        public string GetWordGroupByIndex(int index)
+        {
+            return WordGroups[index];
+        }
+        public int GetWordGroupsCount()
+        {
+            return WordGroups.Count();
+        }
+
 
 
         public List<WordClass> WordList { get => wordList; set => wordList = value; }
         public string WordListString { get => wordListString; set => wordListString = value; }
         public WordClass TargetWord { get => targetWord; set => targetWord = value; }
         public Random Random { get => random; set => random = value; }
+        public List<string> WordGroups { get => wordGroups; set => wordGroups = value; }
     }
 }

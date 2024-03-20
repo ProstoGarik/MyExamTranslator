@@ -65,12 +65,15 @@ namespace GarikExamTranslator.Custom
             queueNum = 1;
         }
 
-        public void GenerateWordList()
+        public void GenerateWordList(string group)
         {
             ResetWordList();
             for (int i = 1; i < viewModel.GetWordListCount() + 1; i++)
             {
-                this.AddWordLabel(i);
+                if (viewModel.GetWordByIndex(i).Group == group)
+                {
+                    this.AddWordLabel(i);
+                }
             }
         }
     }

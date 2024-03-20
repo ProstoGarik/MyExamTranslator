@@ -32,7 +32,15 @@ namespace GarikExamTranslator
 
         private void WordListForm_Activated(object sender, EventArgs e)
         {
-            wordsPanel.GenerateWordList();
+            if (viewModel.GetWordGroupsCount() != 0)
+            {
+                WordGroupsComboBox.Items.Clear();
+                for (int i = 0; i < viewModel.GetWordGroupsCount(); i++)
+                {
+                    WordGroupsComboBox.Items.Add(viewModel.GetWordGroupNameByIndex(i));
+                }
+            }
+            wordsPanel.GenerateWordList(WordGroupsComboBox.Text);
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -60,6 +68,11 @@ namespace GarikExamTranslator
         private void WordListForm_Deactivate(object sender, EventArgs e)
         {
             wordsPanel.ResetWordList();
+        }
+
+        private void WordGroupsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            wordsPanel.GenerateWordList(WordGroupsComboBox.Text);
         }
     }
 }

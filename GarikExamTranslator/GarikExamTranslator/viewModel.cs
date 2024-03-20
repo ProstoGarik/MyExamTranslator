@@ -33,14 +33,14 @@ namespace GarikExamTranslator
             
         }
 
-        public void AddWord(string word, string translation)
+        public void AddWord(string word, string translation, string group)
         {
-            wordList.AddWord(word, translation);
+            wordList.AddWord(word, translation, group);
         }
 
-        public void EditWord(string newWord, string newTranslation)
+        public void EditWord(string newWord, string newTranslation, string newGroup)
         {
-            wordList.EditWord(newWord, newTranslation);
+            wordList.EditWord(newWord, newTranslation, newGroup);
         }
 
         public void DeleteWord()
@@ -94,6 +94,16 @@ namespace GarikExamTranslator
             wordList.ResetTargetWord();
         }
 
+        public int GetWordGroupsCount()
+        {
+            return wordList.GetWordGroupsCount();
+        }
+
+        public string GetWordGroupNameByIndex(int index) 
+        {
+            return wordList.GetWordGroupByIndex(index);
+        }
+
         public void CreateTestList()
         {
             wordListForTest = wordList;
@@ -110,6 +120,7 @@ namespace GarikExamTranslator
             }
             catch { return str; }
         }
+
 
         public bool CompareWords(string word1, string word2)
         {

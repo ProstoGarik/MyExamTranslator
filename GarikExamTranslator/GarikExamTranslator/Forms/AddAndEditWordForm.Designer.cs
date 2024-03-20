@@ -36,6 +36,8 @@
             this.TranslationInputTextBox = new System.Windows.Forms.TextBox();
             this.DoneButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.WordGroupsComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddEditLabel
@@ -106,11 +108,32 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
+            // WordGroupsComboBox
+            // 
+            this.WordGroupsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WordGroupsComboBox.FormattingEnabled = true;
+            this.WordGroupsComboBox.Location = new System.Drawing.Point(546, 121);
+            this.WordGroupsComboBox.Name = "WordGroupsComboBox";
+            this.WordGroupsComboBox.Size = new System.Drawing.Size(103, 32);
+            this.WordGroupsComboBox.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(541, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 25);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Группа";
+            // 
             // AddAndEditWordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.WordGroupsComboBox);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.TranslationInputTextBox);
@@ -137,5 +160,7 @@
         private System.Windows.Forms.TextBox TranslationInputTextBox;
         private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.ComboBox WordGroupsComboBox;
+        private System.Windows.Forms.Label label1;
     }
 }

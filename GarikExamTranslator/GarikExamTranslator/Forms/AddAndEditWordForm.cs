@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,18 +27,25 @@ namespace GarikExamTranslator
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            if(isEditMode)
+            if (WordInputTextBox.Text.Trim() == "" || TranslationInputTextBox.Text.Trim() == "" || WordGroupsComboBox.Text.Trim() == "")
             {
-                viewModel.EditWord(WordInputTextBox.Text, TranslationInputTextBox.Text);
-                viewModel.FormResizeCloseOpen(this, returnForm);
-                isEditMode = false;
+                MessageBox.Show( "Не все поля заполнены", "Ошибка");
             }
             else
             {
-                viewModel.AddWord(WordInputTextBox.Text, TranslationInputTextBox.Text);
-                viewModel.FormResizeCloseOpen(this, returnForm);
+                if (isEditMode)
+                {
+                    viewModel.EditWord(WordInputTextBox.Text, TranslationInputTextBox.Text, WordGroupsComboBox.Text);
+                    viewModel.FormResizeCloseOpen(this, returnForm);
+                    isEditMode = false;
+                }
+                else
+                {
+                    viewModel.AddWord(WordInputTextBox.Text, TranslationInputTextBox.Text, WordGroupsComboBox.Text);
+                    viewModel.FormResizeCloseOpen(this, returnForm);
+                }
+                SaveNClear();
             }
-            SaveNClear();
         }
 
         private void AddAndEditWordForm_Load(object sender, EventArgs e)
@@ -55,11 +63,20 @@ namespace GarikExamTranslator
                 this.word = viewModel.GetTargetWord();
                 WordInputTextBox.Text = word.Word;
                 TranslationInputTextBox.Text = word.Translation;
+                WordGroupsComboBox.Text = word.Group;
             }
             else
             {
                 DeleteButton.Enabled = false;
                 DeleteButton.Visible = false;
+            }
+            if(viewModel.GetWordGroupsCount() != 0)
+            {
+                WordGroupsComboBox.Items.Clear();
+                for (int i = 0; i < viewModel.GetWordGroupsCount(); i++)
+                {
+                    WordGroupsComboBox.Items.Add(viewModel.GetWordGroupNameByIndex(i));
+                }
             }
         }
 
