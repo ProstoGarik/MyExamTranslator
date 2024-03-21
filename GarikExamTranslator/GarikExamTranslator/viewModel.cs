@@ -18,7 +18,7 @@ namespace GarikExamTranslator
         private WordListClass wordListForTest;
         public viewModel() 
         {
-            fileManager = new FileManagerLocal();
+            fileManager = new FileManagerDB();
             wordList = new WordListClass();
             wordListForTest = new WordListClass();
             try

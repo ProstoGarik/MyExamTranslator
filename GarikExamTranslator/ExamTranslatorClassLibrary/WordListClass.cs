@@ -21,6 +21,7 @@ namespace ExamTranslatorClassLibrary
             WordList = new List<WordClass> { };
             WordListString = "";
             Random = new Random();
+            WordGroups = new List<string>();
         }
         private string MakeFirstUpperCase(string str) // Делает первую букву строки большой, 
         {
@@ -52,6 +53,7 @@ namespace ExamTranslatorClassLibrary
 
             
         }
+        
 
         public void DeleteWord()
         {
