@@ -21,15 +21,16 @@ namespace GarikExamTranslator
             fileManager = new FileManagerDB();
             wordList = new WordListClass();
             wordListForTest = new WordListClass();
-            try
-            {
-                Load();
-                wordList.ResetTargetWord();
-            }
-            catch
-            {
+            Load();
+            wordList.ResetTargetWord();
+            //try
+            //{
+                
+            //}
+            //catch
+            //{
 
-            }
+            //}
             
         }
 
