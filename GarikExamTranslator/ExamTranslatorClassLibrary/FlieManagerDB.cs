@@ -72,14 +72,14 @@ namespace ExamTranslatorClassLibrary
                 indexlist3.Add(i);
             }
 
-            for (int i = 0; i < currentList.Count / 3; i += 3)
+            for (int i = 0; i < currentList.Count; i += 3)
             {
-                int index1 = indexlist1[i];
+                int index1 = indexlist1[i] + 1;
                 int index2 = indexlist2[i];
-                int index3 = indexlist3[i];
+                int index3 = indexlist3[i] - 1;
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+index1+1+"\",\""+index2+1+"\",\""+index3+1+"\")"
+                    CommandText = "INSERT OR IGNORE INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+index1+"\",\""+index2+"\",\""+index3+"\")"
                 };
                 command.ExecuteNonQuery();
             }
