@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace ExamTranslatorClassLibrary
 {
@@ -14,54 +15,72 @@ namespace ExamTranslatorClassLibrary
                 "Version=3; FailIfMissing=False");
         static SQLiteCommand command;
 
-        List<string> currentWordList;
-        List<string> currentTranslationList;
-        List<string> currentGroupList;
+        List<string> currentList;
+        List<int> indexlist1;
+        List<int> indexlist2;
+        List<int> indexlist3;
         string wordToAdd;
 
 
         public void SaveData(WordListClass Data)
         {
-            currentWordList = new List<string>();
-            currentTranslationList = new List<string>();
-            currentGroupList = new List<string>();
-            for (int i = 1; i < Data.GetWordListCount(); i++)
+            currentList= new List<string>();
+            indexlist1 = new List<int>();
+            indexlist2 = new List<int>();
+            indexlist3 = new List<int>();
+            for (int i = 1; i < Data.GetWordListCount()+1; i++)
             {
                 WordClass ZWord = Data.GetWordByIndex(i);
-                currentWordList.Add(ZWord.Word);
-                currentTranslationList.Add(ZWord.Translation);
-                currentGroupList.Add(ZWord.Group);
+                currentList.Add(ZWord.Word);
+                currentList.Add(ZWord.Translation);
+                currentList.Add(ZWord.Group);
             }
 
             connection.Open();
 
-            command = new SQLiteCommand(connection)
+
+            for (int i = 0; i < currentList.Count; i+= 3)
             {
-                CommandText = "INSERT OR IGNORE INTO \"Words\"(\"word\") VALUES(\" " + wordToAdd + " \") "
-            };
-            foreach (string word in currentWordList)
-            {
-                wordToAdd = word;
+                wordToAdd = currentList[i];
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "INSERT OR IGNORE INTO \"Words\"(\"word\") VALUES(\"" + wordToAdd + "\")"
+                };
                 command.ExecuteNonQuery();
+                indexlist1.Add(i);
             }
 
-            command = new SQLiteCommand(connection)
+            for (int i = 1; i < currentList.Count + 1; i += 3)
             {
-                CommandText = "INSERT OR IGNORE INTO \"Translations\"(\"translation\") VALUES(\"" + wordToAdd + "\")"
-            };
-            foreach (string word in currentTranslationList)
-            {
-                wordToAdd = word;
+                wordToAdd = currentList[i];
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "INSERT OR IGNORE INTO \"Translations\"(\"translation\") VALUES(\"" + wordToAdd + "\")"
+                };
                 command.ExecuteNonQuery();
+                indexlist2.Add(i);
             }
 
-            command = new SQLiteCommand(connection)
+            for (int i = 2; i < currentList.Count + 1; i += 3)
             {
-                CommandText = "INSERT OR IGNORE INTO \"Groups\"(\"group\") VALUES(\"" + wordToAdd + "\")"
-            };
-            foreach (string word in currentGroupList)
+                wordToAdd = currentList[i];
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "INSERT OR IGNORE INTO \"Groups\"(\"group\") VALUES(\"" + wordToAdd + "\")"
+                };
+                command.ExecuteNonQuery();
+                indexlist3.Add(i);
+            }
+
+            for (int i = 0; i < currentList.Count / 3; i += 3)
             {
-                wordToAdd = word;
+                int index1 = indexlist1[i];
+                int index2 = indexlist2[i];
+                int index3 = indexlist3[i];
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "INSERT OR IGNORE INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+index1+1+"\",\""+index2+1+"\",\""+index3+1+"\")"
+                };
                 command.ExecuteNonQuery();
             }
 
