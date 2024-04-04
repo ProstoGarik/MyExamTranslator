@@ -43,7 +43,7 @@ namespace ExamTranslatorClassLibrary
             {
                 word = MakeFirstUpperCase(word);
                 translation = MakeFirstUpperCase(translation);
-                WordClass addedWord = new WordClass(word, translation, wordList.Count, group);
+                WordClass addedWord = new WordClass(word, translation, wordList.Count(), group);
                 if (!WordGroups.Contains(group))
                 {
                     WordGroups.Add(group);

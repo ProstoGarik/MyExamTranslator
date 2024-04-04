@@ -22,6 +22,7 @@ namespace ExamTranslatorClassLibrary
         string wordToAdd;
 
 
+
         public void SaveData(WordListClass Data)
         {
             currentList= new List<string>();
@@ -38,6 +39,12 @@ namespace ExamTranslatorClassLibrary
 
             connection.Open();
 
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = "DELETE FROM \"WordsAndTranslations\""
+            };
+            command.ExecuteNonQuery();
+
 
             for (int i = 0; i < currentList.Count; i+= 3)
             {
@@ -50,7 +57,7 @@ namespace ExamTranslatorClassLibrary
                 indexlist1.Add(i);
             }
 
-            for (int i = 1; i < currentList.Count + 1; i += 3)
+            for (int i = 1; i < currentList.Count(); i += 3)
             {
                 wordToAdd = currentList[i];
                 command = new SQLiteCommand(connection)
@@ -61,7 +68,7 @@ namespace ExamTranslatorClassLibrary
                 indexlist2.Add(i);
             }
 
-            for (int i = 2; i < currentList.Count + 1; i += 3)
+            for (int i = 2; i < currentList.Count(); i += 3)
             {
                 wordToAdd = currentList[i];
                 command = new SQLiteCommand(connection)
@@ -72,14 +79,15 @@ namespace ExamTranslatorClassLibrary
                 indexlist3.Add(i);
             }
 
-            for (int i = 0; i < currentList.Count; i += 3)
+
+            for (int i = 0; i < indexlist1.Count(); i++)
             {
-                int index1 = indexlist1[i] + 1;
-                int index2 = indexlist2[i];
-                int index3 = indexlist3[i] - 1;
+                int index1 = 1 + ((indexlist1[i]+1)/3); //=0+1
+                int index2 = 1 + (indexlist2[i] / 3); //=1
+                int index3 = 1 + ((indexlist3[i]-1) / 3);//=2-1
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+index1+"\",\""+index2+"\",\""+index3+"\")"
+                    CommandText = "INSERT INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+index1+"\",\""+index2+"\",\""+index3+"\")"
                 };
                 command.ExecuteNonQuery();
             }
