@@ -16,9 +16,9 @@ namespace ExamTranslatorClassLibrary
         static SQLiteCommand command;
 
         List<string> currentList;
-        List<int> indexlist1;
-        List<int> indexlist2;
-        List<int> indexlist3;
+        List<string> Wordlist;
+        List<string> Translationlist;
+        List<string> Grouplist;
         string wordToAdd;
 
 
@@ -26,9 +26,9 @@ namespace ExamTranslatorClassLibrary
         public void SaveData(WordListClass Data)
         {
             currentList= new List<string>();
-            indexlist1 = new List<int>();
-            indexlist2 = new List<int>();
-            indexlist3 = new List<int>();
+            Wordlist = new List<string>();
+            Translationlist = new List<string>();
+            Grouplist = new List<string>();
             for (int i = 1; i < Data.GetWordListCount()+1; i++)
             {
                 WordClass ZWord = Data.GetWordByIndex(i);
