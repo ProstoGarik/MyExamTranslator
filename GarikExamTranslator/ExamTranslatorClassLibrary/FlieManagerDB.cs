@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.ComponentModel.DataAnnotations;
+using System.CodeDom.Compiler;
 
 namespace ExamTranslatorClassLibrary
 {
@@ -16,19 +18,17 @@ namespace ExamTranslatorClassLibrary
         static SQLiteCommand command;
 
         List<string> currentList;
-        List<string> Wordlist;
-        List<string> Translationlist;
-        List<string> Grouplist;
+        List<int> wordIndexList;
+        List<int> translationIndexList;
+        List<int> groupIndexList;
         string wordToAdd;
-
-
 
         public void SaveData(WordListClass Data)
         {
+            wordIndexList = new List<int>();
+            translationIndexList = new List<int>();
+            groupIndexList = new List<int>();
             currentList= new List<string>();
-            Wordlist = new List<string>();
-            Translationlist = new List<string>();
-            Grouplist = new List<string>();
             for (int i = 1; i < Data.GetWordListCount()+1; i++)
             {
                 WordClass ZWord = Data.GetWordByIndex(i);
@@ -39,12 +39,6 @@ namespace ExamTranslatorClassLibrary
 
             connection.Open();
 
-            command = new SQLiteCommand(connection)
-            {
-                CommandText = "DELETE FROM \"WordsAndTranslations\""
-            };
-            command.ExecuteNonQuery();
-
 
             for (int i = 0; i < currentList.Count; i+= 3)
             {
@@ -54,18 +48,34 @@ namespace ExamTranslatorClassLibrary
                     CommandText = "INSERT OR IGNORE INTO \"Words\"(\"word\") VALUES(\"" + wordToAdd + "\")"
                 };
                 command.ExecuteNonQuery();
-                indexlist1.Add(i);
+                wordIndexList.Add(i);
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "SELECT \"*\" FROM \"Words\""
+                };
+                DataTable data = new DataTable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                adapter.Fill(data);
+                foreach (DataRow row in data.Rows)
+                {
+                    if(wordToAdd == row.Field<string>("Word"))
+                    {
+
+                    }
+                }
             }
+
+
 
             for (int i = 1; i < currentList.Count(); i += 3)
             {
                 wordToAdd = currentList[i];
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"Translations\"(\"translation\") VALUES(\"" + wordToAdd + "\")"
+                    CommandText = "INSERT OR IGNORE INTO \"Translations\"(\"Translation\") VALUES(\"" + wordToAdd + "\")"
                 };
                 command.ExecuteNonQuery();
-                indexlist2.Add(i);
+                translationIndexList.Add(i);
             }
 
             for (int i = 2; i < currentList.Count(); i += 3)
@@ -73,25 +83,25 @@ namespace ExamTranslatorClassLibrary
                 wordToAdd = currentList[i];
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"Groups\"(\"group\") VALUES(\"" + wordToAdd + "\")"
+                    CommandText = "INSERT OR IGNORE INTO \"Groups\"(\"Group\") VALUES(\"" + wordToAdd + "\")"
                 };
                 command.ExecuteNonQuery();
-                indexlist3.Add(i);
+                groupIndexList.Add(i);
+
             }
 
-
-            for (int i = 0; i < indexlist1.Count(); i++)
+            for (int i = 0; i < wordIndexList.Count(); i++)
             {
-                int index1 = 1 + ((indexlist1[i]+1)/3); //=0+1
-                int index2 = 1 + (indexlist2[i] / 3); //=1
-                int index3 = 1 + ((indexlist3[i]-1) / 3);//=2-1
+                int word = wordIndexList[i] + 1;
+                int translation = translationIndexList[i];
+                int group = groupIndexList[i] - 1;
+
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+index1+"\",\""+index2+"\",\""+index3+"\")"
+                    CommandText = "INSERT OR IGNORE INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+word+"\", \""+translation+"\", \""+group+"\")"
                 };
                 command.ExecuteNonQuery();
             }
-
             connection.Close();
 
         }
