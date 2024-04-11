@@ -14,10 +14,12 @@ namespace ExamTranslatorClassLibrary
     public class FileManagerDB : IFileManager
     {
         static SQLiteConnection connection = new SQLiteConnection("Data Source=..\\..\\Resources\\Database\\NewExamTranslatorDB.db;" +
-                "Version=3; FailIfMissing=False");
+                "Version=3; FailIfMissing=False;");
         static SQLiteCommand command;
 
-        List<string> currentList;
+        List<string> currentWordList;
+        List<string> currentTranslationList;
+        List<string> currentGroupList;
         List<int> wordIndexList;
         List<int> translationIndexList;
         List<int> groupIndexList;
@@ -28,77 +30,180 @@ namespace ExamTranslatorClassLibrary
             wordIndexList = new List<int>();
             translationIndexList = new List<int>();
             groupIndexList = new List<int>();
-            currentList= new List<string>();
+            currentWordList= new List<string>();
+            currentTranslationList = new List<string>();
+            currentGroupList = new List<string>();
             for (int i = 1; i < Data.GetWordListCount()+1; i++)
             {
                 WordClass ZWord = Data.GetWordByIndex(i);
-                currentList.Add(ZWord.Word);
-                currentList.Add(ZWord.Translation);
-                currentList.Add(ZWord.Group);
+                currentWordList.Add(ZWord.Word);
+                currentTranslationList.Add(ZWord.Translation);
+                currentGroupList.Add(ZWord.Group);
             }
 
             connection.Open();
 
-
-            for (int i = 0; i < currentList.Count; i+= 3)
+            for (int i = 0; i < currentWordList.Count; i++)
             {
-                wordToAdd = currentList[i];
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"Words\"(\"word\") VALUES(\"" + wordToAdd + "\")"
-                };
-                command.ExecuteNonQuery();
-                wordIndexList.Add(i);
-                command = new SQLiteCommand(connection)
-                {
-                    CommandText = "SELECT \"*\" FROM \"Words\""
+                    CommandText = "SELECT * FROM \"Words\""
                 };
                 DataTable data = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 adapter.Fill(data);
                 foreach (DataRow row in data.Rows)
                 {
-                    if(wordToAdd == row.Field<string>("Word"))
+                    string wordToDelete = row.Field<string>("word");
+                    if ( !(currentWordList.Contains(wordToDelete)) )
                     {
+                        command = new SQLiteCommand(connection)
+                        {
+                            CommandText = "PRAGMA foreign_keys=ON"
+                        };
+                        command.ExecuteNonQuery();
+                        command.CommandText = "DELETE FROM \"Words\" WHERE \"word\" = \"" + wordToDelete + "\"";
+                        command.ExecuteNonQuery();
+                        currentWordList.Remove(wordToDelete);
+                    }
+                }
+            }
 
+            for (int i = 0; i < currentTranslationList.Count; i++)
+            {
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "SELECT * FROM \"Translations\""
+                };
+                DataTable data = new DataTable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                adapter.Fill(data);
+                foreach (DataRow row in data.Rows)
+                {
+                    string translationToDelete = row.Field<string>("translation");
+                    if (!(currentTranslationList.Contains(translationToDelete)))
+                    {
+                        command = new SQLiteCommand(connection)
+                        {
+                            CommandText = "PRAGMA foreign_keys=ON"
+                        };
+                        command.ExecuteNonQuery();
+                        command.CommandText = "DELETE FROM \"Translations\" WHERE \"translation\" = \"" + translationToDelete + "\"";
+                        command.ExecuteNonQuery();
+                        currentTranslationList.Remove(translationToDelete);
+                    }
+                }
+            }
+            for (int i = 0; i < currentGroupList.Count; i++)
+            {
+                command = new SQLiteCommand(connection)
+                { 
+                    CommandText = "SELECT * FROM \"Groups\""
+                };
+                DataTable data = new DataTable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                adapter.Fill(data);
+                foreach (DataRow row in data.Rows)
+                {
+                    string groupToDelete = row.Field<string>("group");
+                    if (!(currentGroupList.Contains(groupToDelete)))
+                    {
+                        command = new SQLiteCommand(connection)
+                        {
+                            CommandText = "PRAGMA foreign_keys=ON"
+                        };
+                        command.ExecuteNonQuery();
+                        command.CommandText = "DELETE FROM \"Groups\" WHERE \"group\" = \"" + groupToDelete + "\"";
+                        command.ExecuteNonQuery();
+                        currentGroupList.Remove(groupToDelete);
+                    }
+                }
+            }
+
+            for (int i = 0; i < currentWordList.Count; i++)
+            {
+                wordToAdd = currentWordList[i];
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "INSERT OR IGNORE INTO \"Words\"(\"word\") VALUES(\"" + wordToAdd + "\")"
+                };
+                command.ExecuteNonQuery();
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "SELECT * FROM \"Words\""
+                };
+                DataTable data = new DataTable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                adapter.Fill(data);
+                foreach (DataRow row in data.Rows)
+                {
+                    if(wordToAdd == row.Field<string>("word"))
+                    {
+                        wordIndexList.Add(Convert.ToInt32(row.Field<long>("id")));
                     }
                 }
             }
 
 
 
-            for (int i = 1; i < currentList.Count(); i += 3)
+            for (int i = 0; i < currentTranslationList.Count(); i ++)
             {
-                wordToAdd = currentList[i];
+                wordToAdd = currentTranslationList[i];
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"Translations\"(\"Translation\") VALUES(\"" + wordToAdd + "\")"
+                    CommandText = "INSERT OR IGNORE INTO \"Translations\"(\"translation\") VALUES(\"" + wordToAdd + "\")"
                 };
                 command.ExecuteNonQuery();
-                translationIndexList.Add(i);
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "SELECT * FROM \"Translations\""
+                };
+                DataTable data = new DataTable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                adapter.Fill(data);
+                foreach (DataRow row in data.Rows)
+                {
+                    if(wordToAdd == row.Field<string>("translation"))
+                    {
+                        translationIndexList.Add(Convert.ToInt32(row.Field<long>("id")));
+                    }
+                }
             }
 
-            for (int i = 2; i < currentList.Count(); i += 3)
+            for (int i = 0; i < currentGroupList.Count(); i ++)
             {
-                wordToAdd = currentList[i];
+                wordToAdd = currentGroupList[i];
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"Groups\"(\"Group\") VALUES(\"" + wordToAdd + "\")"
+                    CommandText = "INSERT OR IGNORE INTO \"Groups\"(\"group\") VALUES(\"" + wordToAdd + "\")"
                 };
                 command.ExecuteNonQuery();
-                groupIndexList.Add(i);
+                command = new SQLiteCommand(connection)
+                {
+                    CommandText = "SELECT * FROM \"Groups\""
+                };
+                DataTable data = new DataTable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                adapter.Fill(data);
+                foreach (DataRow row in data.Rows)
+                {
+                    if (wordToAdd == row.Field<string>("group"))
+                    {
+                        groupIndexList.Add(Convert.ToInt32(row.Field<long>("id")));
+                    }
+                }
 
             }
 
             for (int i = 0; i < wordIndexList.Count(); i++)
             {
-                int word = wordIndexList[i] + 1;
+                int word = wordIndexList[i];
                 int translation = translationIndexList[i];
-                int group = groupIndexList[i] - 1;
+                int group = groupIndexList[i];
 
                 command = new SQLiteCommand(connection)
                 {
-                    CommandText = "INSERT OR IGNORE INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\""+word+"\", \""+translation+"\", \""+group+"\")"
+                    CommandText = "INSERT OR IGNORE INTO \"WordsAndTranslations\"(\"Word\", \"Translation\", \"Group\") VALUES(\"" + word + "\", \"" + translation + "\", \"" + group + "\")"
                 };
                 command.ExecuteNonQuery();
             }

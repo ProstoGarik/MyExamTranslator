@@ -29,36 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranslatorMainForm));
-            this.AddWordButton = new System.Windows.Forms.Button();
             this.WordListButton = new System.Windows.Forms.Button();
+            this.AddWordButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // AddWordButton
-            // 
-            this.AddWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddWordButton.Location = new System.Drawing.Point(12, 12);
-            this.AddWordButton.Name = "AddWordButton";
-            this.AddWordButton.Size = new System.Drawing.Size(219, 75);
-            this.AddWordButton.TabIndex = 0;
-            this.AddWordButton.Text = "Добавить Слово";
-            this.AddWordButton.UseVisualStyleBackColor = true;
-            this.AddWordButton.Click += new System.EventHandler(this.addWordButton_Click);
             // 
             // WordListButton
             // 
+            this.WordListButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Book_Icon;
+            this.WordListButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WordListButton.FlatAppearance.BorderSize = 0;
+            this.WordListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WordListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.WordListButton.Location = new System.Drawing.Point(569, 12);
+            this.WordListButton.Location = new System.Drawing.Point(483, 113);
             this.WordListButton.Name = "WordListButton";
-            this.WordListButton.Size = new System.Drawing.Size(219, 75);
+            this.WordListButton.Size = new System.Drawing.Size(210, 210);
             this.WordListButton.TabIndex = 1;
-            this.WordListButton.Text = "Просмотреть Слова";
             this.WordListButton.UseVisualStyleBackColor = true;
             this.WordListButton.Click += new System.EventHandler(this.WordListButton_Click);
+            // 
+            // AddWordButton
+            // 
+            this.AddWordButton.BackColor = System.Drawing.Color.Orange;
+            this.AddWordButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Add_Icon;
+            this.AddWordButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddWordButton.FlatAppearance.BorderSize = 0;
+            this.AddWordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddWordButton.ForeColor = System.Drawing.Color.Transparent;
+            this.AddWordButton.Location = new System.Drawing.Point(99, 113);
+            this.AddWordButton.Name = "AddWordButton";
+            this.AddWordButton.Size = new System.Drawing.Size(210, 210);
+            this.AddWordButton.TabIndex = 0;
+            this.AddWordButton.UseVisualStyleBackColor = false;
+            this.AddWordButton.Click += new System.EventHandler(this.addWordButton_Click);
             // 
             // TranslatorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.WordListButton);
             this.Controls.Add(this.AddWordButton);
