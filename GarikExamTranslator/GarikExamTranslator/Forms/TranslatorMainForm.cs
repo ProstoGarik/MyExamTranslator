@@ -40,6 +40,29 @@ namespace GarikExamTranslator
             this.DoubleBuffered = true;
             viewModel.PreLoadForm(addAndEditWordForm);
             viewModel.PreLoadForm(wordListForm);
+            viewModel.ApplyFont(WelcomeLabel);
+            viewModel.ApplyFont(WordListLabel);
+            viewModel.ApplyFont(AddWordLabel);
+        }
+
+        private void WordListButton_MouseEnter(object sender, EventArgs e)
+        {
+            WordListButton.Image = Properties.Resources.Book_Icon_OnHover;
+        }
+
+        private void WordListButton_MouseLeave(object sender, EventArgs e)
+        {
+            WordListButton.Image = Properties.Resources.Book_Icon;
+        }
+
+        private void AddWordButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddWordButton.Image = Properties.Resources.Add_Icon_OnHover;
+        }
+
+        private void AddWordButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddWordButton.Image = Properties.Resources.Add_Icon;
         }
     }
 }

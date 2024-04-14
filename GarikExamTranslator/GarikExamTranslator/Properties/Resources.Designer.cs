@@ -73,10 +73,60 @@ namespace GarikExamTranslator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_Icon_OnHover {
+            get {
+                object obj = ResourceManager.GetObject("Add_Icon_OnHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Book_Icon {
             get {
                 object obj = ResourceManager.GetObject("Book_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Book_Icon_OnHover {
+            get {
+                object obj = ResourceManager.GetObject("Book_Icon_OnHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Done_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Done_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Done_Icon_OnHover {
+            get {
+                object obj = ResourceManager.GetObject("Done_Icon_OnHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] VividSans_Regular {
+            get {
+                object obj = ResourceManager.GetObject("VividSans_Regular", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

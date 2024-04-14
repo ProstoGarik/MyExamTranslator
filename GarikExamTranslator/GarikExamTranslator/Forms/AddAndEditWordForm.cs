@@ -95,5 +95,16 @@ namespace GarikExamTranslator
             viewModel.ResetChosenWord();
             viewModel.Save();
         }
+
+        private void DoneButton_MouseEnter(object sender, EventArgs e)
+        {
+            DoneButton.Image = Properties.Resources.Done_Icon_OnHover;
+            
+        }
+
+        private void DoneButton_MouseLeave(object sender, EventArgs e)
+        {
+            DoneButton.Image = Properties.Resources.Done_Icon;
+        }
     }
 }

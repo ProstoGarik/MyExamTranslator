@@ -1,6 +1,7 @@
 ﻿using ExamTranslatorClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -13,6 +14,7 @@ namespace GarikExamTranslator
     {
         public WordClass workinWithWord;
 
+        private PrivateFontCollection fontCollection;
         public IFileManager fileManager;
         private WordListClass wordList;
         private WordListClass wordListForTest;
@@ -23,14 +25,8 @@ namespace GarikExamTranslator
             wordListForTest = new WordListClass();
             Load();
             wordList.ResetTargetWord();
-            //try
-            //{
-                
-            //}
-            //catch
-            //{
-
-            //}
+            fontCollection = new PrivateFontCollection();
+            fontCollection.AddFontFile("..\\..\\Resources\\Fonts\\vivid_snas\\VividSans-Regular.ttf");
             
         }
 
@@ -138,5 +134,9 @@ namespace GarikExamTranslator
             wordList = fileManager.LoadData();
         }
 
+        public void ApplyFont(Control control)
+        {
+            control.Font = new System.Drawing.Font(fontCollection.Families[0], control.Font.Size);
+        }
     }
 }
