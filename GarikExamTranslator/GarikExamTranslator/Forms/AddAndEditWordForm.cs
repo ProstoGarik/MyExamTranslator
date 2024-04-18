@@ -59,7 +59,8 @@ namespace GarikExamTranslator
 
         private void AddAndEditWordForm_Activated(object sender, EventArgs e)
         {
-            if(viewModel.GetTargetWord() != null)
+            Refresh();
+            if (viewModel.GetTargetWord() != null)
             {
                 isEditMode = true;
                 DeleteButton.Enabled = true;
@@ -119,6 +120,28 @@ namespace GarikExamTranslator
         private void DeleteButton_MouseLeave(object sender, EventArgs e)
         {
             DeleteButton.Image = Properties.Resources.Delete_Icon;
+        }
+
+        private void ReturnToMenuButton_MouseEnter(object sender, EventArgs e)
+        {
+            ReturnToMenuButton.Image = Properties.Resources.GoBack_Icon_OnHover;
+        }
+
+        private void ReturnToMenuButton_MouseLeave(object sender, EventArgs e)
+        {
+            ReturnToMenuButton.Image = Properties.Resources.GoBack_Icon;
+        }
+
+        private void ReturnToMenuButton_Click(object sender, EventArgs e)
+        {
+            viewModel.FormResizeCloseOpen(this, returnForm);
+            isEditMode = false;
+            SaveNClear();
+        }
+
+        private void AddAndEditWordForm_Shown(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

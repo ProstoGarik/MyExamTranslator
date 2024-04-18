@@ -33,6 +33,8 @@
             this.WordListUpperLabel = new System.Windows.Forms.Label();
             this.WordGroupsComboBox = new System.Windows.Forms.ComboBox();
             this.StartTestLabel = new System.Windows.Forms.Label();
+            this.DeleteGroupLabel = new System.Windows.Forms.Label();
+            this.DeleteGroupButton = new System.Windows.Forms.Button();
             this.StartTestButton = new System.Windows.Forms.Button();
             this.ReturnToMenuButton = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -56,8 +58,9 @@
             this.WordGroupsComboBox.FormattingEnabled = true;
             this.WordGroupsComboBox.Location = new System.Drawing.Point(155, 12);
             this.WordGroupsComboBox.Name = "WordGroupsComboBox";
-            this.WordGroupsComboBox.Size = new System.Drawing.Size(121, 32);
+            this.WordGroupsComboBox.Size = new System.Drawing.Size(217, 32);
             this.WordGroupsComboBox.TabIndex = 12;
+            this.WordGroupsComboBox.Text = "Без Группы";
             this.WordGroupsComboBox.SelectedIndexChanged += new System.EventHandler(this.WordGroupsComboBox_SelectedIndexChanged);
             // 
             // StartTestLabel
@@ -70,6 +73,36 @@
             this.StartTestLabel.Size = new System.Drawing.Size(132, 25);
             this.StartTestLabel.TabIndex = 13;
             this.StartTestLabel.Text = "Начать тест";
+            // 
+            // DeleteGroupLabel
+            // 
+            this.DeleteGroupLabel.AutoSize = true;
+            this.DeleteGroupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteGroupLabel.ForeColor = System.Drawing.Color.White;
+            this.DeleteGroupLabel.Location = new System.Drawing.Point(453, 241);
+            this.DeleteGroupLabel.Name = "DeleteGroupLabel";
+            this.DeleteGroupLabel.Size = new System.Drawing.Size(166, 25);
+            this.DeleteGroupLabel.TabIndex = 15;
+            this.DeleteGroupLabel.Text = "Удалить группу";
+            // 
+            // DeleteGroupButton
+            // 
+            this.DeleteGroupButton.BackColor = System.Drawing.Color.Orange;
+            this.DeleteGroupButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Delete_Icon;
+            this.DeleteGroupButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteGroupButton.FlatAppearance.BorderSize = 0;
+            this.DeleteGroupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.DeleteGroupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.DeleteGroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteGroupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteGroupButton.Location = new System.Drawing.Point(458, 139);
+            this.DeleteGroupButton.Name = "DeleteGroupButton";
+            this.DeleteGroupButton.Size = new System.Drawing.Size(110, 110);
+            this.DeleteGroupButton.TabIndex = 14;
+            this.DeleteGroupButton.UseVisualStyleBackColor = false;
+            this.DeleteGroupButton.Click += new System.EventHandler(this.DeleteGroupButton_Click);
+            this.DeleteGroupButton.MouseEnter += new System.EventHandler(this.DeleteGroupButton_MouseEnter);
+            this.DeleteGroupButton.MouseLeave += new System.EventHandler(this.DeleteGroupButton_MouseLeave);
             // 
             // StartTestButton
             // 
@@ -112,6 +145,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DeleteGroupLabel);
+            this.Controls.Add(this.DeleteGroupButton);
             this.Controls.Add(this.StartTestLabel);
             this.Controls.Add(this.WordGroupsComboBox);
             this.Controls.Add(this.StartTestButton);
@@ -123,6 +158,7 @@
             this.Activated += new System.EventHandler(this.WordListForm_Activated);
             this.Deactivate += new System.EventHandler(this.WordListForm_Deactivate);
             this.Load += new System.EventHandler(this.WordListForm_Load);
+            this.Shown += new System.EventHandler(this.WordListForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,5 +173,7 @@
         private System.Windows.Forms.Button StartTestButton;
         private System.Windows.Forms.ComboBox WordGroupsComboBox;
         private System.Windows.Forms.Label StartTestLabel;
+        private System.Windows.Forms.Button DeleteGroupButton;
+        private System.Windows.Forms.Label DeleteGroupLabel;
     }
 }

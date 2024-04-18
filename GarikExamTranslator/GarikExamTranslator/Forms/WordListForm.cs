@@ -32,15 +32,23 @@ namespace GarikExamTranslator
 
         private void WordListForm_Activated(object sender, EventArgs e)
         {
-            if (viewModel.GetWordGroupsCount() != 0)
+            Refresh();
+            WordGroupsComboBox.Items.Clear();
+            for (int i = 0; i < viewModel.GetWordGroupsCount(); i++)
             {
-                WordGroupsComboBox.Items.Clear();
-                for (int i = 0; i < viewModel.GetWordGroupsCount(); i++)
-                {
-                    WordGroupsComboBox.Items.Add(viewModel.GetWordGroupNameByIndex(i));
-                }
+                WordGroupsComboBox.Items.Add(viewModel.GetWordGroupNameByIndex(i));
             }
             wordsPanel.GenerateWordList(WordGroupsComboBox.Text);
+            if (WordGroupsComboBox.Text == "Без Группы")
+            {
+                DeleteGroupButton.Image = Properties.Resources.Delete_Icon_NotActive;
+                DeleteGroupButton.Enabled = false;
+            }
+            else
+            {
+                DeleteGroupButton.Image = Properties.Resources.Delete_Icon;
+                DeleteGroupButton.Enabled = true;
+            }
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -58,6 +66,7 @@ namespace GarikExamTranslator
             this.Controls.Add(wordsPanel);
             viewModel.ApplyFont(WordListUpperLabel);
             viewModel.ApplyFont(StartTestLabel);
+            viewModel.ApplyFont(DeleteGroupLabel);
         }
 
         private void StartTestButton_Click(object sender, EventArgs e)
@@ -74,6 +83,16 @@ namespace GarikExamTranslator
 
         private void WordGroupsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(WordGroupsComboBox.Text == "Без Группы")
+            {
+                DeleteGroupButton.Image = Properties.Resources.Delete_Icon_NotActive;
+                DeleteGroupButton.Enabled = false;
+            }
+            else
+            {
+                DeleteGroupButton.Image = Properties.Resources.Delete_Icon;
+                DeleteGroupButton.Enabled = true;
+            }
             wordsPanel.GenerateWordList(WordGroupsComboBox.Text);
         }
 
@@ -95,6 +114,45 @@ namespace GarikExamTranslator
         private void StartTestButton_MouseLeave(object sender, EventArgs e)
         {
             StartTestButton.Image = Properties.Resources.Test_Icon;
+        }
+
+        private void DeleteGroupButton_Click(object sender, EventArgs e)
+        {
+            viewModel.DeleteGroup(WordGroupsComboBox.Text);
+            WordGroupsComboBox.Text = "Без Группы";
+            WordGroupsComboBox.Items.Clear();
+            for (int i = 0; i < viewModel.GetWordGroupsCount(); i++)
+            {
+                WordGroupsComboBox.Items.Add(viewModel.GetWordGroupNameByIndex(i));
+            }
+            wordsPanel.GenerateWordList(WordGroupsComboBox.Text);
+
+        }
+
+        private void DeleteGroupButton_EnabledChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteGroupButton_MouseEnter(object sender, EventArgs e)
+        {
+            if(DeleteGroupButton.Enabled)
+            {
+                DeleteGroupButton.Image = Properties.Resources.Delete_Icon_OnHover;
+            }
+        }
+
+        private void DeleteGroupButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (DeleteGroupButton.Enabled)
+            {
+                DeleteGroupButton.Image = Properties.Resources.Delete_Icon;
+            }
+        }
+
+        private void WordListForm_Shown(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

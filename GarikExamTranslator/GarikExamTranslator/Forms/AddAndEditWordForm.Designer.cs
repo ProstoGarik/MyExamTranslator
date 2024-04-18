@@ -38,6 +38,7 @@
             this.GroupLabel = new System.Windows.Forms.Label();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.DoneButton = new System.Windows.Forms.Button();
+            this.ReturnToMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddEditLabel
@@ -100,8 +101,9 @@
             this.WordGroupsComboBox.FormattingEnabled = true;
             this.WordGroupsComboBox.Location = new System.Drawing.Point(546, 121);
             this.WordGroupsComboBox.Name = "WordGroupsComboBox";
-            this.WordGroupsComboBox.Size = new System.Drawing.Size(103, 32);
+            this.WordGroupsComboBox.Size = new System.Drawing.Size(205, 32);
             this.WordGroupsComboBox.TabIndex = 7;
+            this.WordGroupsComboBox.Text = "Без Группы";
             // 
             // GroupLabel
             // 
@@ -152,12 +154,31 @@
             this.DoneButton.MouseEnter += new System.EventHandler(this.DoneButton_MouseEnter);
             this.DoneButton.MouseLeave += new System.EventHandler(this.DoneButton_MouseLeave);
             // 
+            // ReturnToMenuButton
+            // 
+            this.ReturnToMenuButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.GoBack_Icon;
+            this.ReturnToMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ReturnToMenuButton.FlatAppearance.BorderSize = 0;
+            this.ReturnToMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.ReturnToMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.ReturnToMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReturnToMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReturnToMenuButton.Location = new System.Drawing.Point(672, -23);
+            this.ReturnToMenuButton.Name = "ReturnToMenuButton";
+            this.ReturnToMenuButton.Size = new System.Drawing.Size(138, 138);
+            this.ReturnToMenuButton.TabIndex = 9;
+            this.ReturnToMenuButton.UseVisualStyleBackColor = true;
+            this.ReturnToMenuButton.Click += new System.EventHandler(this.ReturnToMenuButton_Click);
+            this.ReturnToMenuButton.MouseEnter += new System.EventHandler(this.ReturnToMenuButton_MouseEnter);
+            this.ReturnToMenuButton.MouseLeave += new System.EventHandler(this.ReturnToMenuButton_MouseLeave);
+            // 
             // AddAndEditWordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ReturnToMenuButton);
             this.Controls.Add(this.GroupLabel);
             this.Controls.Add(this.WordGroupsComboBox);
             this.Controls.Add(this.DeleteButton);
@@ -172,6 +193,7 @@
             this.Text = "Garik Translator";
             this.Activated += new System.EventHandler(this.AddAndEditWordForm_Activated);
             this.Load += new System.EventHandler(this.AddAndEditWordForm_Load);
+            this.Shown += new System.EventHandler(this.AddAndEditWordForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +210,6 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.ComboBox WordGroupsComboBox;
         private System.Windows.Forms.Label GroupLabel;
+        private System.Windows.Forms.Button ReturnToMenuButton;
     }
 }

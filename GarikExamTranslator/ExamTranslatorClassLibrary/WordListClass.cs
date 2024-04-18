@@ -23,6 +23,7 @@ namespace ExamTranslatorClassLibrary
             WordListString = "";
             Random = new Random();
             WordGroups = new List<string>();
+            WordGroups.Add("Без Группы");
         }
         private string MakeFirstUpperCase(string str) // Делает первую букву строки большой, 
         {
@@ -119,6 +120,19 @@ namespace ExamTranslatorClassLibrary
                 wordList[k] = wordList[n];
                 wordList[n] = value;
             }
+        }
+
+        public void DeleteGroup(string groupToDelete)
+        {
+            foreach (WordClass word in WordList)
+            {
+                if(word.Group == groupToDelete)
+                {
+                    word.Group = "Без Группы";
+                }
+            }
+            WordGroups.Remove(groupToDelete);
+            isEdited = true;
         }
 
         public string GetWordGroupByIndex(int index)

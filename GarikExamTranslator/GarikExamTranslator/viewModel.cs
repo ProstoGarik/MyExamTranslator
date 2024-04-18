@@ -38,11 +38,13 @@ namespace GarikExamTranslator
         public void EditWord(string newWord, string newTranslation, string newGroup)
         {
             wordList.EditWord(newWord, newTranslation, newGroup);
+            Save();
         }
 
         public void DeleteWord()
         {
             wordList.DeleteWord();
+            Save();
         }
 
         public void PreLoadForm(Form form)
@@ -137,6 +139,12 @@ namespace GarikExamTranslator
         public void ApplyFont(Control control)
         {
             control.Font = new System.Drawing.Font(fontCollection.Families[0], control.Font.Size);
+        }
+
+        public void DeleteGroup(string group)
+        {
+            wordList.DeleteGroup(group);
+            Save();
         }
     }
 }

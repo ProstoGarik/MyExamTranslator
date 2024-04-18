@@ -28,6 +28,13 @@ namespace GarikExamTranslator.Forms
         {
             UpdateCounters();
             TestResultLabel.Text = "";
+            viewModel.ApplyFont(MainWordLabel);
+            viewModel.ApplyFont(TestCounterLabel);
+            viewModel.ApplyFont(TestResultLabel);
+            viewModel.ApplyFont(WordTaskLabel);
+            viewModel.ApplyFont(WordTestUpperLabel);
+            viewModel.ApplyFont(WordTranslationLabel);
+
         }
 
         private void UpdateCounters()
@@ -64,6 +71,36 @@ namespace GarikExamTranslator.Forms
         private void GoBackButton_Click(object sender, EventArgs e)
         {
             viewModel.FormResizeCloseOpen(this, returnForm, true);
+        }
+
+        private void GoBackButton_MouseEnter(object sender, EventArgs e)
+        {
+            GoBackButton.Image = Properties.Resources.GoBack_Icon_OnHover;
+        }
+
+        private void GoBackButton_MouseLeave(object sender, EventArgs e)
+        {
+            GoBackButton.Image = Properties.Resources.GoBack_Icon;
+        }
+
+        private void AnswerButton_MouseEnter(object sender, EventArgs e)
+        {
+            AnswerButton.Image = Properties.Resources.Done_Icon_OnHover;
+        }
+
+        private void AnswerButton_MouseLeave(object sender, EventArgs e)
+        {
+            AnswerButton.Image = Properties.Resources.Done_Icon;
+        }
+
+        private void WordTestForm_Shown(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void WordTestForm_Activated(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

@@ -124,7 +124,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TranslatorMainForm";
             this.Text = "Garik Translator";
+            this.Activated += new System.EventHandler(this.TranslatorMainForm_Activated);
             this.Load += new System.EventHandler(this.TranslatorMainForm_Load);
+            this.Shown += new System.EventHandler(this.TranslatorMainForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

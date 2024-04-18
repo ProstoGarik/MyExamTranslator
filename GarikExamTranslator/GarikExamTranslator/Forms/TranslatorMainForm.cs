@@ -37,6 +37,7 @@ namespace GarikExamTranslator
 
         private void TranslatorMainForm_Load(object sender, EventArgs e)
         {
+            Refresh();
             this.DoubleBuffered = true;
             viewModel.PreLoadForm(addAndEditWordForm);
             viewModel.PreLoadForm(wordListForm);
@@ -63,6 +64,16 @@ namespace GarikExamTranslator
         private void AddWordButton_MouseLeave(object sender, EventArgs e)
         {
             AddWordButton.Image = Properties.Resources.Add_Icon;
+        }
+
+        private void TranslatorMainForm_Shown(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void TranslatorMainForm_Activated(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }
