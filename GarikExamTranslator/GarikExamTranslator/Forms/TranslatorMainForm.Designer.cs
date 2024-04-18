@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranslatorMainForm));
             this.WelcomeLabel = new System.Windows.Forms.Label();
-            this.WordListButton = new System.Windows.Forms.Button();
-            this.AddWordButton = new System.Windows.Forms.Button();
             this.AddWordLabel = new System.Windows.Forms.Label();
             this.WordListLabel = new System.Windows.Forms.Label();
+            this.WordListButton = new System.Windows.Forms.Button();
+            this.AddWordButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // WelcomeLabel
@@ -47,44 +47,6 @@
             this.WelcomeLabel.Size = new System.Drawing.Size(359, 42);
             this.WelcomeLabel.TabIndex = 2;
             this.WelcomeLabel.Text = "Добро пожаловать!";
-            // 
-            // WordListButton
-            // 
-            this.WordListButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Book_Icon;
-            this.WordListButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.WordListButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.WordListButton.FlatAppearance.BorderSize = 0;
-            this.WordListButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.WordListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WordListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.WordListButton.Location = new System.Drawing.Point(483, 113);
-            this.WordListButton.Name = "WordListButton";
-            this.WordListButton.Size = new System.Drawing.Size(210, 210);
-            this.WordListButton.TabIndex = 1;
-            this.WordListButton.UseVisualStyleBackColor = true;
-            this.WordListButton.Click += new System.EventHandler(this.WordListButton_Click);
-            this.WordListButton.MouseEnter += new System.EventHandler(this.WordListButton_MouseEnter);
-            this.WordListButton.MouseLeave += new System.EventHandler(this.WordListButton_MouseLeave);
-            // 
-            // AddWordButton
-            // 
-            this.AddWordButton.BackColor = System.Drawing.Color.Orange;
-            this.AddWordButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddWordButton.BackgroundImage")));
-            this.AddWordButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AddWordButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddWordButton.FlatAppearance.BorderSize = 0;
-            this.AddWordButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.AddWordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddWordButton.ForeColor = System.Drawing.Color.Transparent;
-            this.AddWordButton.Location = new System.Drawing.Point(86, 113);
-            this.AddWordButton.Name = "AddWordButton";
-            this.AddWordButton.Size = new System.Drawing.Size(210, 210);
-            this.AddWordButton.TabIndex = 0;
-            this.AddWordButton.UseVisualStyleBackColor = true;
-            this.AddWordButton.Click += new System.EventHandler(this.addWordButton_Click);
-            this.AddWordButton.MouseEnter += new System.EventHandler(this.AddWordButton_MouseEnter);
-            this.AddWordButton.MouseLeave += new System.EventHandler(this.AddWordButton_MouseLeave);
             // 
             // AddWordLabel
             // 
@@ -107,6 +69,46 @@
             this.WordListLabel.Size = new System.Drawing.Size(268, 31);
             this.WordListLabel.TabIndex = 4;
             this.WordListLabel.Text = "Добавленные слова";
+            // 
+            // WordListButton
+            // 
+            this.WordListButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Book_Icon;
+            this.WordListButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WordListButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WordListButton.FlatAppearance.BorderSize = 0;
+            this.WordListButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.WordListButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.WordListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WordListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WordListButton.Location = new System.Drawing.Point(483, 113);
+            this.WordListButton.Name = "WordListButton";
+            this.WordListButton.Size = new System.Drawing.Size(210, 210);
+            this.WordListButton.TabIndex = 1;
+            this.WordListButton.UseVisualStyleBackColor = true;
+            this.WordListButton.Click += new System.EventHandler(this.WordListButton_Click);
+            this.WordListButton.MouseEnter += new System.EventHandler(this.WordListButton_MouseEnter);
+            this.WordListButton.MouseLeave += new System.EventHandler(this.WordListButton_MouseLeave);
+            // 
+            // AddWordButton
+            // 
+            this.AddWordButton.BackColor = System.Drawing.Color.Orange;
+            this.AddWordButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddWordButton.BackgroundImage")));
+            this.AddWordButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddWordButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddWordButton.FlatAppearance.BorderSize = 0;
+            this.AddWordButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.AddWordButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.AddWordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddWordButton.ForeColor = System.Drawing.Color.Transparent;
+            this.AddWordButton.Location = new System.Drawing.Point(86, 113);
+            this.AddWordButton.Name = "AddWordButton";
+            this.AddWordButton.Size = new System.Drawing.Size(210, 210);
+            this.AddWordButton.TabIndex = 0;
+            this.AddWordButton.UseVisualStyleBackColor = true;
+            this.AddWordButton.Click += new System.EventHandler(this.addWordButton_Click);
+            this.AddWordButton.MouseEnter += new System.EventHandler(this.AddWordButton_MouseEnter);
+            this.AddWordButton.MouseLeave += new System.EventHandler(this.AddWordButton_MouseLeave);
             // 
             // TranslatorMainForm
             // 

@@ -152,12 +152,29 @@
   <ItemGroup>
     <None Include="Resources\Fonts\vivid_snas\VividSans-Regular.ttf" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\UI\Delete_Icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UI\Done_Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UI\Done_Icon_OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\Delete_Icon_OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\GoBack_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\GoBack_Icon_OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\Test_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\Test_Icon_OnHover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

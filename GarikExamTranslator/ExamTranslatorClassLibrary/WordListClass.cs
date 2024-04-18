@@ -13,6 +13,7 @@ namespace ExamTranslatorClassLibrary
         private string wordListString; //Тот же wordList, только в виде строки
         private WordClass targetWord; //"Отмеченное" слово, с которым в дальнейшем происходит редактирование 
         private List<string> wordGroups;
+        private bool isEdited;
 
         [NonSerialized]
         private Random random;
@@ -62,6 +63,7 @@ namespace ExamTranslatorClassLibrary
             {
                 wordList[i].Index = i;
             }
+            isEdited = true;
         }
 
         public void EditWord(string newWord, string newTranslation, string newGroup)
@@ -71,6 +73,7 @@ namespace ExamTranslatorClassLibrary
             {
                 WordGroups.Add(newGroup);
             }
+            isEdited = true;
         }
 
         public void TargetWordByIndex(int index)
@@ -134,5 +137,6 @@ namespace ExamTranslatorClassLibrary
         public WordClass TargetWord { get => targetWord; set => targetWord = value; }
         public Random Random { get => random; set => random = value; }
         public List<string> WordGroups { get => wordGroups; set => wordGroups = value; }
+        public bool IsEdited { get => isEdited; set => isEdited = value; }
     }
 }

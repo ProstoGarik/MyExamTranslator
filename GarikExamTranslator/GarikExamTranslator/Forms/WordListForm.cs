@@ -56,6 +56,8 @@ namespace GarikExamTranslator
             wordsPanel.Size = new Size(400, 400);
             wordsPanel.BorderStyle = BorderStyle.FixedSingle;
             this.Controls.Add(wordsPanel);
+            viewModel.ApplyFont(WordListUpperLabel);
+            viewModel.ApplyFont(StartTestLabel);
         }
 
         private void StartTestButton_Click(object sender, EventArgs e)
@@ -73,6 +75,26 @@ namespace GarikExamTranslator
         private void WordGroupsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             wordsPanel.GenerateWordList(WordGroupsComboBox.Text);
+        }
+
+        private void ReturnToMenuButton_MouseEnter(object sender, EventArgs e)
+        {
+            ReturnToMenuButton.Image = Properties.Resources.GoBack_Icon_OnHover;
+        }
+
+        private void ReturnToMenuButton_MouseLeave(object sender, EventArgs e)
+        {
+            ReturnToMenuButton.Image = Properties.Resources.GoBack_Icon;
+        }
+
+        private void StartTestButton_MouseEnter(object sender, EventArgs e)
+        {
+            StartTestButton.Image = Properties.Resources.Test_Icon_OnHover; 
+        }
+
+        private void StartTestButton_MouseLeave(object sender, EventArgs e)
+        {
+            StartTestButton.Image = Properties.Resources.Test_Icon;
         }
     }
 }

@@ -51,6 +51,10 @@ namespace GarikExamTranslator
         private void AddAndEditWordForm_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
+            viewModel.ApplyFont(AddEditLabel);
+            viewModel.ApplyFont(GroupLabel);
+            viewModel.ApplyFont(TranslationLabel);
+            viewModel.ApplyFont(WordLabel);
         }
 
         private void AddAndEditWordForm_Activated(object sender, EventArgs e)
@@ -105,6 +109,16 @@ namespace GarikExamTranslator
         private void DoneButton_MouseLeave(object sender, EventArgs e)
         {
             DoneButton.Image = Properties.Resources.Done_Icon;
+        }
+
+        private void DeleteButton_MouseEnter(object sender, EventArgs e)
+        {
+            DeleteButton.Image = Properties.Resources.Delete_Icon_OnHover;
+        }
+
+        private void DeleteButton_MouseLeave(object sender, EventArgs e)
+        {
+            DeleteButton.Image = Properties.Resources.Delete_Icon;
         }
     }
 }

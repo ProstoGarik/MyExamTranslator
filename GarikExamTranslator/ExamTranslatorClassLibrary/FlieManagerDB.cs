@@ -52,19 +52,23 @@ namespace ExamTranslatorClassLibrary
                 DataTable data = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 adapter.Fill(data);
-                foreach (DataRow row in data.Rows)
+                if(Data.IsEdited)
                 {
-                    string wordToDelete = row.Field<string>("word");
-                    if ( !(currentWordList.Contains(wordToDelete)) )
+                    foreach (DataRow row in data.Rows)
                     {
-                        command = new SQLiteCommand(connection)
+                        string wordToDelete = row.Field<string>("word");
+                        if (!(currentWordList.Contains(wordToDelete)))
                         {
-                            CommandText = "PRAGMA foreign_keys=ON"
-                        };
-                        command.ExecuteNonQuery();
-                        command.CommandText = "DELETE FROM \"Words\" WHERE \"word\" = \"" + wordToDelete + "\"";
-                        command.ExecuteNonQuery();
-                        currentWordList.Remove(wordToDelete);
+                            command = new SQLiteCommand(connection)
+                            {
+                                CommandText = "PRAGMA foreign_keys=ON"
+                            };
+                            command.ExecuteNonQuery();
+                            command.CommandText = "DELETE FROM \"Words\" WHERE \"word\" = \"" + wordToDelete + "\"";
+                            command.ExecuteNonQuery();
+                            currentWordList.Remove(wordToDelete);
+
+                        }
                     }
                 }
             }
@@ -78,19 +82,22 @@ namespace ExamTranslatorClassLibrary
                 DataTable data = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 adapter.Fill(data);
-                foreach (DataRow row in data.Rows)
+                if (Data.IsEdited)
                 {
-                    string translationToDelete = row.Field<string>("translation");
-                    if (!(currentTranslationList.Contains(translationToDelete)))
+                    foreach (DataRow row in data.Rows)
                     {
-                        command = new SQLiteCommand(connection)
+                        string translationToDelete = row.Field<string>("translation");
+                        if (!(currentTranslationList.Contains(translationToDelete)))
                         {
-                            CommandText = "PRAGMA foreign_keys=ON"
-                        };
-                        command.ExecuteNonQuery();
-                        command.CommandText = "DELETE FROM \"Translations\" WHERE \"translation\" = \"" + translationToDelete + "\"";
-                        command.ExecuteNonQuery();
-                        currentTranslationList.Remove(translationToDelete);
+                            command = new SQLiteCommand(connection)
+                            {
+                                CommandText = "PRAGMA foreign_keys=ON"
+                            };
+                            command.ExecuteNonQuery();
+                            command.CommandText = "DELETE FROM \"Translations\" WHERE \"translation\" = \"" + translationToDelete + "\"";
+                            command.ExecuteNonQuery();
+                            currentTranslationList.Remove(translationToDelete);
+                        }
                     }
                 }
             }
@@ -103,20 +110,24 @@ namespace ExamTranslatorClassLibrary
                 DataTable data = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 adapter.Fill(data);
-                foreach (DataRow row in data.Rows)
+                if(Data.IsEdited)
                 {
-                    string groupToDelete = row.Field<string>("group");
-                    if (!(currentGroupList.Contains(groupToDelete)))
+                    foreach (DataRow row in data.Rows)
                     {
-                        command = new SQLiteCommand(connection)
+                        string groupToDelete = row.Field<string>("group");
+                        if (!(currentGroupList.Contains(groupToDelete)))
                         {
-                            CommandText = "PRAGMA foreign_keys=ON"
-                        };
-                        command.ExecuteNonQuery();
-                        command.CommandText = "DELETE FROM \"Groups\" WHERE \"group\" = \"" + groupToDelete + "\"";
-                        command.ExecuteNonQuery();
-                        currentGroupList.Remove(groupToDelete);
+                            command = new SQLiteCommand(connection)
+                            {
+                                CommandText = "PRAGMA foreign_keys=ON"
+                            };
+                            command.ExecuteNonQuery();
+                            command.CommandText = "DELETE FROM \"Groups\" WHERE \"group\" = \"" + groupToDelete + "\"";
+                            command.ExecuteNonQuery();
+                            currentGroupList.Remove(groupToDelete);
+                        }
                     }
+                    Data.IsEdited = false;
                 }
             }
 

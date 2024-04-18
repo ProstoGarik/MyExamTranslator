@@ -32,19 +32,20 @@ namespace GarikExamTranslator.Custom
             this.MaximumSize = new Size(350, 500);
             this.addAndEditWordForm = addAndEditWordForm;
             this.thisForm = thisForm;
+            this.ForeColor = Color.White;
 
         }
 
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
-            
+            viewModel.ApplyFont(this);
         }
 
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            this.Font = new Font("", 14, FontStyle.Regular);
+            this.Font = new Font("", 18, FontStyle.Regular);
             this.Text = (queueNum).ToString() + ") " + word + " - " + translation;
             this.AutoSize = true;
         }

@@ -43,6 +43,7 @@ namespace GarikExamTranslator.Custom
             this.HorizontalScroll.Visible = false;
             this.HorizontalScroll.Maximum = 0;
             this.AutoScroll = true;
+            
         }
 
         private void AddWordLabel(int wordIndex)

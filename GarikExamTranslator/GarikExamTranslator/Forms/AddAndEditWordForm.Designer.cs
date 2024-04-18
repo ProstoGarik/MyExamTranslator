@@ -34,10 +34,10 @@
             this.TranslationLabel = new System.Windows.Forms.Label();
             this.WordInputTextBox = new System.Windows.Forms.TextBox();
             this.TranslationInputTextBox = new System.Windows.Forms.TextBox();
-            this.DoneButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
             this.WordGroupsComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.GroupLabel = new System.Windows.Forms.Label();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.DoneButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddEditLabel
@@ -78,6 +78,7 @@
             this.WordInputTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.WordInputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WordInputTextBox.Location = new System.Drawing.Point(17, 121);
+            this.WordInputTextBox.MaxLength = 75;
             this.WordInputTextBox.Name = "WordInputTextBox";
             this.WordInputTextBox.Size = new System.Drawing.Size(376, 29);
             this.WordInputTextBox.TabIndex = 3;
@@ -87,37 +88,10 @@
             this.TranslationInputTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.TranslationInputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TranslationInputTextBox.Location = new System.Drawing.Point(17, 270);
+            this.TranslationInputTextBox.MaxLength = 75;
             this.TranslationInputTextBox.Name = "TranslationInputTextBox";
             this.TranslationInputTextBox.Size = new System.Drawing.Size(376, 29);
             this.TranslationInputTextBox.TabIndex = 4;
-            // 
-            // DoneButton
-            // 
-            this.DoneButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Done_Icon;
-            this.DoneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DoneButton.FlatAppearance.BorderSize = 0;
-            this.DoneButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.DoneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DoneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DoneButton.Location = new System.Drawing.Point(26, 328);
-            this.DoneButton.Name = "DoneButton";
-            this.DoneButton.Size = new System.Drawing.Size(110, 110);
-            this.DoneButton.TabIndex = 5;
-            this.DoneButton.UseVisualStyleBackColor = true;
-            this.DoneButton.Click += new System.EventHandler(this.DoneButton_Click);
-            this.DoneButton.MouseEnter += new System.EventHandler(this.DoneButton_MouseEnter);
-            this.DoneButton.MouseLeave += new System.EventHandler(this.DoneButton_MouseLeave);
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteButton.Location = new System.Drawing.Point(559, 361);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(229, 77);
-            this.DeleteButton.TabIndex = 6;
-            this.DeleteButton.Text = "Удалить слово";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // WordGroupsComboBox
             // 
@@ -129,16 +103,54 @@
             this.WordGroupsComboBox.Size = new System.Drawing.Size(103, 32);
             this.WordGroupsComboBox.TabIndex = 7;
             // 
-            // label1
+            // GroupLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(541, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 31);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Группа";
+            this.GroupLabel.AutoSize = true;
+            this.GroupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GroupLabel.ForeColor = System.Drawing.Color.White;
+            this.GroupLabel.Location = new System.Drawing.Point(541, 77);
+            this.GroupLabel.Name = "GroupLabel";
+            this.GroupLabel.Size = new System.Drawing.Size(103, 31);
+            this.GroupLabel.TabIndex = 8;
+            this.GroupLabel.Text = "Группа";
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.Color.Orange;
+            this.DeleteButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Delete_Icon;
+            this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteButton.FlatAppearance.BorderSize = 0;
+            this.DeleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.DeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteButton.Location = new System.Drawing.Point(658, 328);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(110, 110);
+            this.DeleteButton.TabIndex = 6;
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.DeleteButton.MouseEnter += new System.EventHandler(this.DeleteButton_MouseEnter);
+            this.DeleteButton.MouseLeave += new System.EventHandler(this.DeleteButton_MouseLeave);
+            // 
+            // DoneButton
+            // 
+            this.DoneButton.BackColor = System.Drawing.Color.Orange;
+            this.DoneButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Done_Icon;
+            this.DoneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DoneButton.FlatAppearance.BorderSize = 0;
+            this.DoneButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.DoneButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.DoneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DoneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DoneButton.Location = new System.Drawing.Point(26, 328);
+            this.DoneButton.Name = "DoneButton";
+            this.DoneButton.Size = new System.Drawing.Size(110, 110);
+            this.DoneButton.TabIndex = 5;
+            this.DoneButton.UseVisualStyleBackColor = false;
+            this.DoneButton.Click += new System.EventHandler(this.DoneButton_Click);
+            this.DoneButton.MouseEnter += new System.EventHandler(this.DoneButton_MouseEnter);
+            this.DoneButton.MouseLeave += new System.EventHandler(this.DoneButton_MouseLeave);
             // 
             // AddAndEditWordForm
             // 
@@ -146,7 +158,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.GroupLabel);
             this.Controls.Add(this.WordGroupsComboBox);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.DoneButton);
@@ -175,6 +187,6 @@
         private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.ComboBox WordGroupsComboBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label GroupLabel;
     }
 }
