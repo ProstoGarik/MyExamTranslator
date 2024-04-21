@@ -1,6 +1,8 @@
 ﻿using ExamTranslatorClassLibrary;
+using GarikExamTranslator.Custom;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Reflection;
@@ -145,6 +147,16 @@ namespace GarikExamTranslator
         {
             wordList.DeleteGroup(group);
             Save();
+        }
+
+        public void MoveLabelButtons(Button editButton, Button deleteButton, MyWordLabel label)
+        {
+            editButton.Enabled = true;
+            editButton.Show();
+            deleteButton.Show();
+            deleteButton.Enabled = true;
+            editButton.Location = new Point(420, label.Location.Y+22);
+            deleteButton.Location = new Point(535, label.Location.Y + 22);
         }
     }
 }

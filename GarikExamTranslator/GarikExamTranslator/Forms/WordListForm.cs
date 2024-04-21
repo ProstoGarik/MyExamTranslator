@@ -49,6 +49,7 @@ namespace GarikExamTranslator
                 DeleteGroupButton.Image = Properties.Resources.Delete_Icon;
                 DeleteGroupButton.Enabled = true;
             }
+            HideButtons();
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -59,7 +60,7 @@ namespace GarikExamTranslator
         private void WordListForm_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-            wordsPanel = new MyControlPanel(viewModel, addAndEditWordForm, this);
+            wordsPanel = new MyControlPanel(viewModel, addAndEditWordForm, this, EditWordButton, DeleteWordButton);
             wordsPanel.Location = new Point(10, 35);
             wordsPanel.Size = new Size(400, 400);
             wordsPanel.BorderStyle = BorderStyle.FixedSingle;
@@ -67,6 +68,9 @@ namespace GarikExamTranslator
             viewModel.ApplyFont(WordListUpperLabel);
             viewModel.ApplyFont(StartTestLabel);
             viewModel.ApplyFont(DeleteGroupLabel);
+            viewModel.ApplyFont(EditWordButton);
+            viewModel.ApplyFont(DeleteWordButton);
+            viewModel.ApplyFont(WordGroupsComboBox);
         }
 
         private void StartTestButton_Click(object sender, EventArgs e)
@@ -153,6 +157,27 @@ namespace GarikExamTranslator
         private void WordListForm_Shown(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+        private void EditWordButton_Click(object sender, EventArgs e)
+        {
+            viewModel.FormResizeCloseOpen(this, addAndEditWordForm);
+            HideButtons();
+        }
+
+        private void DeleteWordButton_Click(object sender, EventArgs e)
+        {
+            viewModel.DeleteWord();
+            wordsPanel.RegenerateWordList();
+            HideButtons();
+        }
+
+        private void HideButtons()
+        {
+            EditWordButton.Hide();
+            DeleteWordButton.Hide();
+            EditWordButton.Enabled = false;
+            DeleteWordButton.Enabled = false;
         }
     }
 }

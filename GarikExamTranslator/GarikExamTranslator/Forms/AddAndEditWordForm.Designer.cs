@@ -36,14 +36,15 @@
             this.TranslationInputTextBox = new System.Windows.Forms.TextBox();
             this.WordGroupsComboBox = new System.Windows.Forms.ComboBox();
             this.GroupLabel = new System.Windows.Forms.Label();
+            this.ReturnToMenuButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.DoneButton = new System.Windows.Forms.Button();
-            this.ReturnToMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddEditLabel
             // 
             this.AddEditLabel.AutoSize = true;
+            this.AddEditLabel.BackColor = System.Drawing.Color.Transparent;
             this.AddEditLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddEditLabel.ForeColor = System.Drawing.Color.White;
             this.AddEditLabel.Location = new System.Drawing.Point(12, 9);
@@ -55,6 +56,7 @@
             // WordLabel
             // 
             this.WordLabel.AutoSize = true;
+            this.WordLabel.BackColor = System.Drawing.Color.Transparent;
             this.WordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WordLabel.ForeColor = System.Drawing.Color.White;
             this.WordLabel.Location = new System.Drawing.Point(12, 77);
@@ -66,6 +68,7 @@
             // TranslationLabel
             // 
             this.TranslationLabel.AutoSize = true;
+            this.TranslationLabel.BackColor = System.Drawing.Color.Transparent;
             this.TranslationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TranslationLabel.ForeColor = System.Drawing.Color.White;
             this.TranslationLabel.Location = new System.Drawing.Point(12, 223);
@@ -108,6 +111,7 @@
             // GroupLabel
             // 
             this.GroupLabel.AutoSize = true;
+            this.GroupLabel.BackColor = System.Drawing.Color.Transparent;
             this.GroupLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GroupLabel.ForeColor = System.Drawing.Color.White;
             this.GroupLabel.Location = new System.Drawing.Point(541, 77);
@@ -116,14 +120,35 @@
             this.GroupLabel.TabIndex = 8;
             this.GroupLabel.Text = "Группа";
             // 
+            // ReturnToMenuButton
+            // 
+            this.ReturnToMenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.ReturnToMenuButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.GoBack_Icon;
+            this.ReturnToMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ReturnToMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReturnToMenuButton.FlatAppearance.BorderSize = 0;
+            this.ReturnToMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ReturnToMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ReturnToMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReturnToMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReturnToMenuButton.Location = new System.Drawing.Point(672, -23);
+            this.ReturnToMenuButton.Name = "ReturnToMenuButton";
+            this.ReturnToMenuButton.Size = new System.Drawing.Size(138, 138);
+            this.ReturnToMenuButton.TabIndex = 9;
+            this.ReturnToMenuButton.UseVisualStyleBackColor = false;
+            this.ReturnToMenuButton.Click += new System.EventHandler(this.ReturnToMenuButton_Click);
+            this.ReturnToMenuButton.MouseEnter += new System.EventHandler(this.ReturnToMenuButton_MouseEnter);
+            this.ReturnToMenuButton.MouseLeave += new System.EventHandler(this.ReturnToMenuButton_MouseLeave);
+            // 
             // DeleteButton
             // 
-            this.DeleteButton.BackColor = System.Drawing.Color.Orange;
+            this.DeleteButton.BackColor = System.Drawing.Color.Transparent;
             this.DeleteButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Delete_Icon;
             this.DeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteButton.FlatAppearance.BorderSize = 0;
-            this.DeleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.DeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.DeleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.DeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeleteButton.Location = new System.Drawing.Point(658, 328);
@@ -137,12 +162,13 @@
             // 
             // DoneButton
             // 
-            this.DoneButton.BackColor = System.Drawing.Color.Orange;
+            this.DoneButton.BackColor = System.Drawing.Color.Transparent;
             this.DoneButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Done_Icon;
             this.DoneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DoneButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DoneButton.FlatAppearance.BorderSize = 0;
-            this.DoneButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.DoneButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.DoneButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.DoneButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.DoneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DoneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DoneButton.Location = new System.Drawing.Point(26, 328);
@@ -154,29 +180,13 @@
             this.DoneButton.MouseEnter += new System.EventHandler(this.DoneButton_MouseEnter);
             this.DoneButton.MouseLeave += new System.EventHandler(this.DoneButton_MouseLeave);
             // 
-            // ReturnToMenuButton
-            // 
-            this.ReturnToMenuButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.GoBack_Icon;
-            this.ReturnToMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ReturnToMenuButton.FlatAppearance.BorderSize = 0;
-            this.ReturnToMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.ReturnToMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
-            this.ReturnToMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReturnToMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReturnToMenuButton.Location = new System.Drawing.Point(672, -23);
-            this.ReturnToMenuButton.Name = "ReturnToMenuButton";
-            this.ReturnToMenuButton.Size = new System.Drawing.Size(138, 138);
-            this.ReturnToMenuButton.TabIndex = 9;
-            this.ReturnToMenuButton.UseVisualStyleBackColor = true;
-            this.ReturnToMenuButton.Click += new System.EventHandler(this.ReturnToMenuButton_Click);
-            this.ReturnToMenuButton.MouseEnter += new System.EventHandler(this.ReturnToMenuButton_MouseEnter);
-            this.ReturnToMenuButton.MouseLeave += new System.EventHandler(this.ReturnToMenuButton_MouseLeave);
-            // 
             // AddAndEditWordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
+            this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ReturnToMenuButton);
             this.Controls.Add(this.GroupLabel);

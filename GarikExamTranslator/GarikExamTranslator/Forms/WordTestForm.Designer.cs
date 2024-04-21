@@ -43,7 +43,7 @@
             // WordTestUpperLabel
             // 
             this.WordTestUpperLabel.AutoSize = true;
-            this.WordTestUpperLabel.BackColor = System.Drawing.Color.Orange;
+            this.WordTestUpperLabel.BackColor = System.Drawing.Color.Transparent;
             this.WordTestUpperLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WordTestUpperLabel.ForeColor = System.Drawing.Color.White;
             this.WordTestUpperLabel.Location = new System.Drawing.Point(12, 9);
@@ -55,6 +55,7 @@
             // WordTaskLabel
             // 
             this.WordTaskLabel.AutoSize = true;
+            this.WordTaskLabel.BackColor = System.Drawing.Color.Transparent;
             this.WordTaskLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WordTaskLabel.ForeColor = System.Drawing.Color.White;
             this.WordTaskLabel.Location = new System.Drawing.Point(13, 70);
@@ -66,6 +67,7 @@
             // WordTranslationLabel
             // 
             this.WordTranslationLabel.AutoSize = true;
+            this.WordTranslationLabel.BackColor = System.Drawing.Color.Transparent;
             this.WordTranslationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WordTranslationLabel.ForeColor = System.Drawing.Color.White;
             this.WordTranslationLabel.Location = new System.Drawing.Point(12, 233);
@@ -85,6 +87,7 @@
             // TestCounterLabel
             // 
             this.TestCounterLabel.AutoSize = true;
+            this.TestCounterLabel.BackColor = System.Drawing.Color.Transparent;
             this.TestCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TestCounterLabel.ForeColor = System.Drawing.Color.White;
             this.TestCounterLabel.Location = new System.Drawing.Point(642, 9);
@@ -96,6 +99,7 @@
             // MainWordLabel
             // 
             this.MainWordLabel.AutoSize = true;
+            this.MainWordLabel.BackColor = System.Drawing.Color.Transparent;
             this.MainWordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainWordLabel.ForeColor = System.Drawing.Color.White;
             this.MainWordLabel.Location = new System.Drawing.Point(13, 121);
@@ -107,6 +111,7 @@
             // TestResultLabel
             // 
             this.TestResultLabel.AutoSize = true;
+            this.TestResultLabel.BackColor = System.Drawing.Color.Transparent;
             this.TestResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TestResultLabel.ForeColor = System.Drawing.Color.White;
             this.TestResultLabel.Location = new System.Drawing.Point(301, 9);
@@ -117,12 +122,12 @@
             // 
             // AnswerButton
             // 
-            this.AnswerButton.BackColor = System.Drawing.Color.Orange;
+            this.AnswerButton.BackColor = System.Drawing.Color.Transparent;
             this.AnswerButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Done_Icon;
             this.AnswerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AnswerButton.FlatAppearance.BorderSize = 0;
-            this.AnswerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.AnswerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.AnswerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.AnswerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.AnswerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AnswerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AnswerButton.Location = new System.Drawing.Point(12, 328);
@@ -136,18 +141,19 @@
             // 
             // GoBackButton
             // 
+            this.GoBackButton.BackColor = System.Drawing.Color.Transparent;
             this.GoBackButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.GoBack_Icon;
             this.GoBackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GoBackButton.FlatAppearance.BorderSize = 0;
-            this.GoBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.GoBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.GoBackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.GoBackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.GoBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GoBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GoBackButton.Location = new System.Drawing.Point(648, 308);
             this.GoBackButton.Name = "GoBackButton";
             this.GoBackButton.Size = new System.Drawing.Size(138, 138);
             this.GoBackButton.TabIndex = 9;
-            this.GoBackButton.UseVisualStyleBackColor = true;
+            this.GoBackButton.UseVisualStyleBackColor = false;
             this.GoBackButton.Click += new System.EventHandler(this.GoBackButton_Click);
             this.GoBackButton.MouseEnter += new System.EventHandler(this.GoBackButton_MouseEnter);
             this.GoBackButton.MouseLeave += new System.EventHandler(this.GoBackButton_MouseLeave);
@@ -157,6 +163,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
+            this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.AnswerButton);
             this.Controls.Add(this.TestResultLabel);

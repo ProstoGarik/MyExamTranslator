@@ -65,6 +65,7 @@ namespace ExamTranslatorClassLibrary
                 wordList[i].Index = i;
             }
             isEdited = true;
+            ResetTargetWord();
         }
 
         public void EditWord(string newWord, string newTranslation, string newGroup)

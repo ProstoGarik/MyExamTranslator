@@ -17,11 +17,12 @@ namespace GarikExamTranslator.Custom
         private string translation;
         private int wordIndex;
         private int queueNum;
-        AddAndEditWordForm addAndEditWordForm;
-        Form thisForm;
+        private Button editButton;
+        private Button deleteButton;
 
 
-        public MyWordLabel(int wordIndex, int queueNum, viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm)
+        public MyWordLabel(int wordIndex, int queueNum, viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm,
+            Button editButton, Button DeleteButton)
         {
             InitializeComponent();
             this.viewModel = viewModel;
@@ -30,10 +31,9 @@ namespace GarikExamTranslator.Custom
             this.word = viewModel.GetWordByIndex(wordIndex).Word;
             this.translation = viewModel.GetWordByIndex(wordIndex).Translation;
             this.MaximumSize = new Size(350, 500);
-            this.addAndEditWordForm = addAndEditWordForm;
-            this.thisForm = thisForm;
             this.ForeColor = Color.White;
-
+            this.editButton = editButton;
+            this.deleteButton = DeleteButton;
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -54,7 +54,21 @@ namespace GarikExamTranslator.Custom
         {
             base.OnClick(e);
             viewModel.ChooseWordByIndex(this.wordIndex);
-            viewModel.FormResizeCloseOpen(thisForm, addAndEditWordForm);
+            viewModel.MoveLabelButtons(editButton, deleteButton, this);
+        }
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            base.OnMouseEnter(e);
+            this.Font = new Font(this.Font.FontFamily, 20, FontStyle.Regular);
+            Cursor = Cursors.Hand;
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            this.Font = new Font(this.Font.FontFamily, 18, FontStyle.Regular);
+            Cursor = DefaultCursor;
         }
     }
 }

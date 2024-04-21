@@ -20,19 +20,27 @@ namespace GarikExamTranslator.Custom
         private AddAndEditWordForm addAndEditWordForm;
         private Form thisForm;
         private int queueNum = 1;
+        private string CurrentGroup;
+        private Button editButton;
+        private Button deleteButton;
 
-        public MyControlPanel(viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm)
+
+        public MyControlPanel(viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm,
+            Button editButton, Button deleteButton)
         {
             InitializeComponent();
             this.viewModel = viewModel;
             labelStack = new Stack<Control>();
             this.addAndEditWordForm = addAndEditWordForm;
             this.thisForm = thisForm;
+            this.editButton = editButton;
+            this.deleteButton = deleteButton;
         }
 
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+            
         }
 
         protected override void OnCreateControl()
@@ -48,7 +56,7 @@ namespace GarikExamTranslator.Custom
 
         private void AddWordLabel(int wordIndex)
         {
-            MyWordLabel wordLabel = new MyWordLabel(wordIndex, queueNum, viewModel, addAndEditWordForm, thisForm);
+            MyWordLabel wordLabel = new MyWordLabel(wordIndex, queueNum, viewModel, addAndEditWordForm, thisForm, editButton, deleteButton);
             wordLabel.Location = new Point(tempLocation.X, tempLocation.Y);
             this.Controls.Add(wordLabel);
             tempLocation = new Point(tempLocation.X, tempLocation.Y + wordLabel.Size.Height + 10);
@@ -68,10 +76,23 @@ namespace GarikExamTranslator.Custom
 
         public void GenerateWordList(string group)
         {
+            CurrentGroup = group;
             ResetWordList();
             for (int i = 1; i < viewModel.GetWordListCount() + 1; i++)
             {
                 if (viewModel.GetWordByIndex(i).Group == group)
+                {
+                    this.AddWordLabel(i);
+                }
+            }
+        }
+
+        public void RegenerateWordList()
+        {
+            ResetWordList();
+            for (int i = 1; i < viewModel.GetWordListCount() + 1; i++)
+            {
+                if (viewModel.GetWordByIndex(i).Group == CurrentGroup)
                 {
                     this.AddWordLabel(i);
                 }
