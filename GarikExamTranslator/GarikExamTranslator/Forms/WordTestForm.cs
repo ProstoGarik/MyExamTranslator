@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExamTranslatorClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +17,14 @@ namespace GarikExamTranslator.Forms
         private WordListForm returnForm;
         int wordCounter = 1;
         int correctAnswerCounter = 0;
+        private WordListClass wordTestClass;
 
         public WordTestForm(WordListForm returnForm, viewModel viewModel)
         {
             InitializeComponent();
             this.returnForm = returnForm;
             this.viewModel = viewModel;
+            wordTestClass = viewModel.GetTestList();
         }
 
         private void WordTestForm_Load(object sender, EventArgs e)
@@ -41,14 +44,14 @@ namespace GarikExamTranslator.Forms
         {
             try
             {
-                TestCounterLabel.Text = wordCounter.ToString() + " из " + viewModel.GetWordListCount().ToString();
-                MainWordLabel.Text = viewModel.GetWordByIndex(wordCounter).Word;
+                TestCounterLabel.Text = wordCounter.ToString() + " из " + wordTestClass.GetWordListCount().ToString();
+                MainWordLabel.Text = wordTestClass.GetWordByIndex(wordCounter).Word;
                 wordCounter++;
             }
             catch
             {
                 TestResultLabel.Text = "Ваш результат:\n" + correctAnswerCounter.ToString() + " правильных ответов";
-                TestCounterLabel.Text = (wordCounter-1).ToString() + " из " + viewModel.GetWordListCount().ToString();
+                TestCounterLabel.Text = (wordCounter-1).ToString() + " из " + wordTestClass.GetWordListCount().ToString();
                 MainWordLabel.Text = "";
                 AnswerButton.Enabled = false;
                 TranslationInputTextBox.Enabled = false;
@@ -60,7 +63,7 @@ namespace GarikExamTranslator.Forms
 
         private void AnswerButton_Click(object sender, EventArgs e)
         {
-            if (viewModel.CompareWords(TranslationInputTextBox.Text, viewModel.GetWordByIndex(wordCounter-1).Translation))
+            if (viewModel.CompareWords(TranslationInputTextBox.Text, wordTestClass.GetWordByIndex(wordCounter-1).Translation))
             {
                 correctAnswerCounter++;
             }

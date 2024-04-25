@@ -105,10 +105,30 @@ namespace GarikExamTranslator
             return wordList.GetWordGroupByIndex(index);
         }
 
-        public void CreateTestList()
+        public void CreateTestList(List<string> selectedGroups, bool selectAll)
         {
-            wordListForTest = wordList;
+            WordClass tempSelect;
+            if (!selectAll)
+            {
+                for (int i = 1; i < GetWordListCount(); i++)
+                {
+                    tempSelect = GetWordByIndex(i);
+                    if (selectedGroups.Contains(tempSelect.Group))
+                    {
+                        wordListForTest.WordList.Add(tempSelect);
+                    }
+                }
+            }
+            else
+            {
+                wordListForTest = wordList;
+            }
             wordListForTest.RandomizeList();
+        }
+
+        public WordListClass GetTestList()
+        {
+            return wordListForTest;
         }
 
         private string MakeFirstUpperCase(string str)

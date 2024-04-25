@@ -83,6 +83,12 @@
     <Compile Include="Forms\AddAndEditWordForm.Designer.cs">
       <DependentUpon>AddAndEditWordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PreTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreTestForm.Designer.cs">
+      <DependentUpon>PreTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TranslatorMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddAndEditWordForm.resx">
       <DependentUpon>AddAndEditWordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreTestForm.resx">
+      <DependentUpon>PreTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WordTestForm.resx">
       <DependentUpon>WordTestForm.cs</DependentUpon>

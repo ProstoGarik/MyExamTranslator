@@ -19,7 +19,7 @@ namespace GarikExamTranslator
         private viewModel viewModel;
         private TranslatorMainForm returnForm;
         private AddAndEditWordForm addAndEditWordForm;
-        private WordTestForm wordTestForm;
+        private PreTestForm PreTestForm;
         MyControlPanel wordsPanel;
 
         public WordListForm(TranslatorMainForm returnForm, AddAndEditWordForm addAndEditWordForm, viewModel viewModel )
@@ -75,9 +75,9 @@ namespace GarikExamTranslator
 
         private void StartTestButton_Click(object sender, EventArgs e)
         {
-            wordTestForm = new WordTestForm(this, viewModel);
-            viewModel.CreateTestList();
-            viewModel.FormResizeCloseOpen(this, wordTestForm);
+            PreTestForm = new PreTestForm(this, viewModel);
+            //viewModel.CreateTestList();
+            viewModel.FormResizeCloseOpen(this, PreTestForm);
         }
 
         private void WordListForm_Deactivate(object sender, EventArgs e)
