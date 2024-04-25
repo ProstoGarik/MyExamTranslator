@@ -48,7 +48,7 @@
             this.WordsCheckedListBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.WordsCheckedListBox.Size = new System.Drawing.Size(739, 242);
             this.WordsCheckedListBox.TabIndex = 0;
-            this.WordsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.WordsCheckedListBox_SelectedIndexChanged);
+            this.WordsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.WordsCheckedListBox_ItemCheck);
             // 
             // AddEditLabel
             // 
@@ -75,7 +75,7 @@
             this.SelectAllCheckedListBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SelectAllCheckedListBox.Size = new System.Drawing.Size(739, 32);
             this.SelectAllCheckedListBox.TabIndex = 2;
-            this.SelectAllCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.SelectAllCheckedListBox_SelectedIndexChanged);
+            this.SelectAllCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.SelectAllCheckedListBox_ItemCheck);
             // 
             // ReturnToMenuButton
             // 

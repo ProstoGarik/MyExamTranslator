@@ -37,18 +37,6 @@ namespace GarikExamTranslator.Forms
             viewModel.ApplyFont(WordsCheckedListBox);
         }
 
-        private void SelectAllCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            SelectAllCheckedListBox.ClearSelected();
-            isSelectAll = !isSelectAll;
-            WordsCheckedListBox.Enabled = !WordsCheckedListBox.Enabled;
-        }
-
-        private void WordsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {  
-            WordsCheckedListBox.ClearSelected();
-        }
-
         private void ReturnToMenuButton_Click(object sender, EventArgs e)
         {
             viewModel.FormResizeCloseOpen(this, returnForm, true);
@@ -71,11 +59,16 @@ namespace GarikExamTranslator.Forms
             viewModel.FormResizeCloseOpen(this, wordTestForm);
         }
 
-        private void SelectAllCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectAllCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             WordsCheckedListBox.Enabled = !WordsCheckedListBox.Enabled;
-            SelectAllCheckedListBox.ClearSelected();     
+            SelectAllCheckedListBox.ClearSelected();
             isSelectAll = !isSelectAll;
+        }
+
+        private void WordsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            WordsCheckedListBox.ClearSelected();
         }
     }
 }

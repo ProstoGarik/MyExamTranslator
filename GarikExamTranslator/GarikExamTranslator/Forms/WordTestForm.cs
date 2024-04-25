@@ -24,11 +24,11 @@ namespace GarikExamTranslator.Forms
             InitializeComponent();
             this.returnForm = returnForm;
             this.viewModel = viewModel;
-            wordTestClass = viewModel.GetTestList();
         }
 
         private void WordTestForm_Load(object sender, EventArgs e)
         {
+            wordTestClass = viewModel.GetTestList();
             UpdateCounters();
             TestResultLabel.Text = "";
             viewModel.ApplyFont(MainWordLabel);
@@ -73,6 +73,7 @@ namespace GarikExamTranslator.Forms
 
         private void GoBackButton_Click(object sender, EventArgs e)
         {
+            viewModel.ClearTestList();
             viewModel.FormResizeCloseOpen(this, returnForm, true);
         }
 

@@ -131,6 +131,11 @@ namespace GarikExamTranslator
             return wordListForTest;
         }
 
+        public void ClearTestList()
+        {
+            wordListForTest = new WordListClass();
+        }
+
         private string MakeFirstUpperCase(string str)
         {
             try
