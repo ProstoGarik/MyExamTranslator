@@ -75,5 +75,15 @@ namespace GarikExamTranslator
         {
             Refresh();
         }
+
+        private void UserProfileButton_MouseEnter(object sender, EventArgs e)
+        {
+            UserProfileButton.Image = Properties.Resources.User_Icon_OnHover;
+        }
+
+        private void UserProfileButton_MouseLeave(object sender, EventArgs e)
+        {
+            UserProfileButton.Image = Properties.Resources.User_Icon;
+        }
     }
 }

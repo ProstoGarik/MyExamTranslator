@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.ComponentModel.DataAnnotations;
 using System.CodeDom.Compiler;
+using System.ComponentModel.Design;
 
 namespace ExamTranslatorClassLibrary
 {
@@ -25,7 +26,7 @@ namespace ExamTranslatorClassLibrary
         List<int> groupIndexList;
         string wordToAdd;
 
-        public void SaveData(WordListClass Data)
+        public void SaveData(WordListClass Data, UserDataClass userData)
         {
             wordIndexList = new List<int>();
             translationIndexList = new List<int>();
@@ -43,17 +44,17 @@ namespace ExamTranslatorClassLibrary
 
             connection.Open();
 
-            for (int i = 0; i < currentWordList.Count; i++)
+            if(Data.IsEdited)
             {
-                command = new SQLiteCommand(connection)
+                for (int i = 0; i < currentWordList.Count; i++)
                 {
-                    CommandText = "SELECT * FROM \"Words\""
-                };
-                DataTable data = new DataTable();
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-                adapter.Fill(data);
-                if(Data.IsEdited)
-                {
+                    command = new SQLiteCommand(connection)
+                    {
+                        CommandText = "SELECT * FROM \"Words\""
+                    };
+                    DataTable data = new DataTable();
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                    adapter.Fill(data);
                     foreach (DataRow row in data.Rows)
                     {
                         string wordToDelete = row.Field<string>("word");
@@ -71,19 +72,16 @@ namespace ExamTranslatorClassLibrary
                         }
                     }
                 }
-            }
 
-            for (int i = 0; i < currentTranslationList.Count; i++)
-            {
-                command = new SQLiteCommand(connection)
+                for (int i = 0; i < currentTranslationList.Count; i++)
                 {
-                    CommandText = "SELECT * FROM \"Translations\""
-                };
-                DataTable data = new DataTable();
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-                adapter.Fill(data);
-                if (Data.IsEdited)
-                {
+                    command = new SQLiteCommand(connection)
+                    {
+                        CommandText = "SELECT * FROM \"Translations\""
+                    };
+                    DataTable data = new DataTable();
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                    adapter.Fill(data);
                     foreach (DataRow row in data.Rows)
                     {
                         string translationToDelete = row.Field<string>("translation");
@@ -100,18 +98,15 @@ namespace ExamTranslatorClassLibrary
                         }
                     }
                 }
-            }
-            for (int i = 0; i < currentGroupList.Count; i++)
-            {
-                command = new SQLiteCommand(connection)
-                { 
-                    CommandText = "SELECT * FROM \"Groups\""
-                };
-                DataTable data = new DataTable();
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-                adapter.Fill(data);
-                if(Data.IsEdited)
+                for (int i = 0; i < currentGroupList.Count; i++)
                 {
+                    command = new SQLiteCommand(connection)
+                    {
+                        CommandText = "SELECT * FROM \"Groups\""
+                    };
+                    DataTable data = new DataTable();
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                    adapter.Fill(data);
                     foreach (DataRow row in data.Rows)
                     {
                         string groupToDelete = row.Field<string>("group");
@@ -220,12 +215,17 @@ namespace ExamTranslatorClassLibrary
             }
             connection.Close();
 
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = "UPDATE \"UserData\" SET Username ="+userData.Username+", WordsAdded ="+userData.WordsAdded+", CompletedTests ="+userData.CompletedTests+", PerfectTests ="+userData.PerfectTests+""
+            };
+
+            connection.Close();
+
         }
 
-        public WordListClass LoadData() 
+        public void LoadData(WordListClass Data, UserDataClass userData) 
         {
-            WordListClass WordList = new WordListClass();
-
             connection.Open();
 
             command = new SQLiteCommand(connection)
@@ -240,11 +240,23 @@ namespace ExamTranslatorClassLibrary
             adapter.Fill(data);
             foreach (DataRow row in data.Rows)
             {
-                WordList.AddWord(row.Field<String>("word"), row.Field<String>("translation"), row.Field<String>("group"));
+                Data.AddWord(row.Field<String>("word"), row.Field<String>("translation"), row.Field<String>("group"));
             }
 
+            command = new SQLiteCommand(connection)
+            {
+                CommandText = "SELECT * FROM UserData;"
+            };
+            data = new DataTable();
+            adapter = new SQLiteDataAdapter(command);
+            adapter.Fill(data);
+            foreach (DataRow row in data.Rows)
+            {
+                userData.EditData(row.Field<String>("Username"), row.Field<Int32>("WordsAdded"), row.Field<Int32>("CompletedTests"), row.Field<Int32>("PerfectTests"));
+            }
+            
+
             connection.Close();
-            return WordList;
         }
     }
 

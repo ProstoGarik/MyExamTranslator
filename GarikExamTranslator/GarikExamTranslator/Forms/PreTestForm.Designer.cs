@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreTestForm));
             this.WordsCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.AddEditLabel = new System.Windows.Forms.Label();
+            this.ChooseGroupsLabel = new System.Windows.Forms.Label();
             this.SelectAllCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.ReturnToMenuButton = new System.Windows.Forms.Button();
             this.DoneButton = new System.Windows.Forms.Button();
@@ -50,17 +51,17 @@
             this.WordsCheckedListBox.TabIndex = 0;
             this.WordsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.WordsCheckedListBox_ItemCheck);
             // 
-            // AddEditLabel
+            // ChooseGroupsLabel
             // 
-            this.AddEditLabel.AutoSize = true;
-            this.AddEditLabel.BackColor = System.Drawing.Color.Transparent;
-            this.AddEditLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddEditLabel.ForeColor = System.Drawing.Color.White;
-            this.AddEditLabel.Location = new System.Drawing.Point(212, 9);
-            this.AddEditLabel.Name = "AddEditLabel";
-            this.AddEditLabel.Size = new System.Drawing.Size(391, 33);
-            this.AddEditLabel.TabIndex = 1;
-            this.AddEditLabel.Text = "Выберите группы для теста";
+            this.ChooseGroupsLabel.AutoSize = true;
+            this.ChooseGroupsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ChooseGroupsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChooseGroupsLabel.ForeColor = System.Drawing.Color.White;
+            this.ChooseGroupsLabel.Location = new System.Drawing.Point(212, 9);
+            this.ChooseGroupsLabel.Name = "ChooseGroupsLabel";
+            this.ChooseGroupsLabel.Size = new System.Drawing.Size(391, 33);
+            this.ChooseGroupsLabel.TabIndex = 1;
+            this.ChooseGroupsLabel.Text = "Выберите группы для теста";
             // 
             // SelectAllCheckedListBox
             // 
@@ -123,10 +124,11 @@
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.ReturnToMenuButton);
             this.Controls.Add(this.SelectAllCheckedListBox);
-            this.Controls.Add(this.AddEditLabel);
+            this.Controls.Add(this.ChooseGroupsLabel);
             this.Controls.Add(this.WordsCheckedListBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PreTestForm";
-            this.Text = "PreTestForm";
+            this.Text = "Garik Translator";
             this.Load += new System.EventHandler(this.PreTestForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,7 +138,7 @@
         #endregion
 
         private System.Windows.Forms.CheckedListBox WordsCheckedListBox;
-        private System.Windows.Forms.Label AddEditLabel;
+        private System.Windows.Forms.Label ChooseGroupsLabel;
         private System.Windows.Forms.CheckedListBox SelectAllCheckedListBox;
         private System.Windows.Forms.Button ReturnToMenuButton;
         private System.Windows.Forms.Button DoneButton;

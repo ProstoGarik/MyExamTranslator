@@ -20,11 +20,13 @@ namespace GarikExamTranslator
         public IFileManager fileManager;
         private WordListClass wordList;
         private WordListClass wordListForTest;
+        private UserDataClass userData;
         public viewModel() 
         {
             fileManager = new FileManagerDB();
             wordList = new WordListClass();
             wordListForTest = new WordListClass();
+            userData = new UserDataClass();
             Load();
             wordList.ResetTargetWord();
             fontCollection = new PrivateFontCollection();
@@ -35,6 +37,7 @@ namespace GarikExamTranslator
         public void AddWord(string word, string translation, string group)
         {
             wordList.AddWord(word, translation, group);
+            userData.WordsAdded += 1;
         }
 
         public void EditWord(string newWord, string newTranslation, string newGroup)
@@ -155,12 +158,12 @@ namespace GarikExamTranslator
 
         public void Save()
         {
-            fileManager.SaveData(wordList);
+            fileManager.SaveData(wordList, userData);
         }
 
         public void Load()
         {
-            wordList = fileManager.LoadData();
+            fileManager.LoadData(wordList, userData);
         }
 
         public void ApplyFont(Control control)
@@ -182,6 +185,15 @@ namespace GarikExamTranslator
             deleteButton.Enabled = true;
             editButton.Location = new Point(420, label.Location.Y+22);
             deleteButton.Location = new Point(535, label.Location.Y + 22);
+        }
+
+        public void UpdateUserTests(bool isPerfect)
+        {
+            userData.CompletedTests += 1;
+            if(isPerfect)
+            {
+                userData.PerfectTests += 1;
+            }
         }
     }
 }

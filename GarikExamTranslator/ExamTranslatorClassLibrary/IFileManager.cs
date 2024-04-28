@@ -8,7 +8,7 @@ namespace ExamTranslatorClassLibrary
 {
     public interface IFileManager
     {
-        void SaveData(WordListClass data);
-        WordListClass LoadData();
+        void SaveData(WordListClass data, UserDataClass userData);
+        void LoadData(WordListClass data, UserDataClass userData);
     }
 }

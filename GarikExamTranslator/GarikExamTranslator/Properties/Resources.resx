@@ -160,6 +160,12 @@
   <data name="Test_Icon_OnHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\Test_Icon_OnHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="User_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\User_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="User_Icon_OnHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\User_Icon_OnHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="VividSans_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fonts\vivid_snas\VividSans-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

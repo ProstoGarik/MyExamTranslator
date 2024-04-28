@@ -95,6 +95,12 @@
     <Compile Include="Forms\TranslatorMainForm.Designer.cs">
       <DependentUpon>TranslatorMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserProfileForm.Designer.cs">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WordTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PreTestForm.resx">
       <DependentUpon>PreTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserProfileForm.resx">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WordTestForm.resx">
       <DependentUpon>WordTestForm.cs</DependentUpon>
@@ -190,6 +199,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UI\Orange_Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\User_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\User_Icon_OnHover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

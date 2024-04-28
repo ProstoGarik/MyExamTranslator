@@ -35,6 +35,7 @@ namespace GarikExamTranslator.Forms
             SelectAllCheckedListBox.Items.Add("Все слова");
             viewModel.ApplyFont(SelectAllCheckedListBox);
             viewModel.ApplyFont(WordsCheckedListBox);
+            viewModel.ApplyFont(ChooseGroupsLabel);
         }
 
         private void ReturnToMenuButton_Click(object sender, EventArgs e)

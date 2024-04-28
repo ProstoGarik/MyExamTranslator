@@ -64,6 +64,7 @@
     <Compile Include="FlieManagerDB.cs" />
     <Compile Include="IFileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDataClass.cs" />
     <Compile Include="WordClass.cs" />
     <Compile Include="WordListClass.cs" />
   </ItemGroup>

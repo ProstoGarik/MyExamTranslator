@@ -34,6 +34,7 @@
             this.WordListLabel = new System.Windows.Forms.Label();
             this.WordListButton = new System.Windows.Forms.Button();
             this.AddWordButton = new System.Windows.Forms.Button();
+            this.UserProfileButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // WelcomeLabel
@@ -113,6 +114,23 @@
             this.AddWordButton.MouseEnter += new System.EventHandler(this.AddWordButton_MouseEnter);
             this.AddWordButton.MouseLeave += new System.EventHandler(this.AddWordButton_MouseLeave);
             // 
+            // UserProfileButton
+            // 
+            this.UserProfileButton.BackColor = System.Drawing.Color.Transparent;
+            this.UserProfileButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.User_Icon;
+            this.UserProfileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UserProfileButton.FlatAppearance.BorderSize = 0;
+            this.UserProfileButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.UserProfileButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.UserProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UserProfileButton.Location = new System.Drawing.Point(688, 7);
+            this.UserProfileButton.Name = "UserProfileButton";
+            this.UserProfileButton.Size = new System.Drawing.Size(100, 100);
+            this.UserProfileButton.TabIndex = 5;
+            this.UserProfileButton.UseVisualStyleBackColor = false;
+            this.UserProfileButton.MouseEnter += new System.EventHandler(this.UserProfileButton_MouseEnter);
+            this.UserProfileButton.MouseLeave += new System.EventHandler(this.UserProfileButton_MouseLeave);
+            // 
             // TranslatorMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +139,7 @@
             this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UserProfileButton);
             this.Controls.Add(this.WordListLabel);
             this.Controls.Add(this.AddWordLabel);
             this.Controls.Add(this.WelcomeLabel);
@@ -144,6 +163,7 @@
         private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Label AddWordLabel;
         private System.Windows.Forms.Label WordListLabel;
+        private System.Windows.Forms.Button UserProfileButton;
     }
 }
 

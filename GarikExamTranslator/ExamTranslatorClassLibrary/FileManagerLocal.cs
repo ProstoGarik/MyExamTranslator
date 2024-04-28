@@ -21,14 +21,14 @@ namespace ExamTranslatorClassLibrary
 
         public string SourceDirectory => Path.Combine(_source, DirectoryName);
 
-        public void SaveData(WordListClass data)
+        public void SaveData(WordListClass data, UserDataClass userData)
         {
             CreateDataSource();
 
             WriteWordListData(data);
         }
 
-        public WordListClass LoadData()
+        public void LoadData(WordListClass Data, UserDataClass userData)
         {
             CreateDataSource();
 
@@ -36,8 +36,6 @@ namespace ExamTranslatorClassLibrary
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(WordListClass));
                 WordListClass data = (WordListClass)serializer.Deserialize(reader);
-
-                return data;
             }
 
             

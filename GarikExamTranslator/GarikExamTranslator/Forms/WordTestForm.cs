@@ -55,6 +55,7 @@ namespace GarikExamTranslator.Forms
                 MainWordLabel.Text = "";
                 AnswerButton.Enabled = false;
                 TranslationInputTextBox.Enabled = false;
+                viewModel.UpdateUserTests(correctAnswerCounter == wordTestClass.GetWordListCount());
             }
             
 
