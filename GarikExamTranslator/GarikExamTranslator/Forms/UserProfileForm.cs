@@ -37,6 +37,8 @@ namespace GarikExamTranslator.Forms
             viewModel.ApplyFont(CompletedTestsLabel);
             viewModel.ApplyFont(PerfectTestsLabel);
             viewModel.ApplyFont(EditUserNameTextBox);
+            viewModel.ApplyFont(OtherTabLabel);
+            viewModel.ApplyFont(AppStartedLabel);
         }
 
         private void ReturnToMenuButton_Click(object sender, EventArgs e)
@@ -46,6 +48,7 @@ namespace GarikExamTranslator.Forms
 
         private void UserProfileForm_Activated(object sender, EventArgs e)
         {
+            Refresh();
             EditUserNameTextBox.Visible = false;
             UsernameLabel.Text = userData.Username;
             WordsAddedLabel.Text = "Добавлено слов: " + userData.WordsAdded;
@@ -56,7 +59,9 @@ namespace GarikExamTranslator.Forms
                 UserPicturePicBox.Image = (Image)new Bitmap(Image.FromFile(userData.ImagePath), UserPicturePicBox.Size);
             }
             catch
-            { }
+            {
+                UserPicturePicBox.Image = (Image)new Bitmap(Properties.Resources.User_Icon, UserPicturePicBox.Size);
+            }
             EditUsernameButton.Location = new Point(UsernameLabel.Size.Width + UsernameLabel.Location.X, EditUsernameButton.Location.Y);
         }
 
@@ -110,6 +115,11 @@ namespace GarikExamTranslator.Forms
             EditUsernameButton.Visible = true;
             UsernameLabel.Visible = true;
             EditUserNameTextBox.Visible = false;
+        }
+
+        private void UserProfileForm_Shown(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

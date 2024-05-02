@@ -40,6 +40,8 @@
             this.ReturnToMenuButton = new System.Windows.Forms.Button();
             this.EditUsernameButton = new System.Windows.Forms.Button();
             this.EditUserNameTextBox = new System.Windows.Forms.TextBox();
+            this.OtherTabLabel = new System.Windows.Forms.Label();
+            this.AppStartedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicturePicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +120,7 @@
             // UserPicturePicBox
             // 
             this.UserPicturePicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.UserPicturePicBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPicturePicBox.Location = new System.Drawing.Point(18, 58);
             this.UserPicturePicBox.Name = "UserPicturePicBox";
             this.UserPicturePicBox.Size = new System.Drawing.Size(85, 85);
@@ -185,6 +188,30 @@
             this.EditUserNameTextBox.TabIndex = 16;
             this.EditUserNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditUserNameTextBox_KeyDown);
             // 
+            // OtherTabLabel
+            // 
+            this.OtherTabLabel.AutoSize = true;
+            this.OtherTabLabel.BackColor = System.Drawing.Color.Transparent;
+            this.OtherTabLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OtherTabLabel.ForeColor = System.Drawing.Color.White;
+            this.OtherTabLabel.Location = new System.Drawing.Point(12, 303);
+            this.OtherTabLabel.Name = "OtherTabLabel";
+            this.OtherTabLabel.Size = new System.Drawing.Size(104, 31);
+            this.OtherTabLabel.TabIndex = 17;
+            this.OtherTabLabel.Text = "Другое";
+            // 
+            // AppStartedLabel
+            // 
+            this.AppStartedLabel.AutoSize = true;
+            this.AppStartedLabel.BackColor = System.Drawing.Color.Transparent;
+            this.AppStartedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AppStartedLabel.ForeColor = System.Drawing.Color.White;
+            this.AppStartedLabel.Location = new System.Drawing.Point(12, 365);
+            this.AppStartedLabel.Name = "AppStartedLabel";
+            this.AppStartedLabel.Size = new System.Drawing.Size(301, 31);
+            this.AppStartedLabel.TabIndex = 18;
+            this.AppStartedLabel.Text = "Запусков приложения:";
+            // 
             // UserProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +219,8 @@
             this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AppStartedLabel);
+            this.Controls.Add(this.OtherTabLabel);
             this.Controls.Add(this.EditUserNameTextBox);
             this.Controls.Add(this.EditUsernameButton);
             this.Controls.Add(this.ReturnToMenuButton);
@@ -208,6 +237,7 @@
             this.Text = "Garik Translator";
             this.Activated += new System.EventHandler(this.UserProfileForm_Activated);
             this.Load += new System.EventHandler(this.UserProfileForm_Load);
+            this.Shown += new System.EventHandler(this.UserProfileForm_Shown);
             this.Click += new System.EventHandler(this.UserProfileForm_Click);
             ((System.ComponentModel.ISupportInitialize)(this.UserPicturePicBox)).EndInit();
             this.ResumeLayout(false);
@@ -228,5 +258,7 @@
         private System.Windows.Forms.Button ReturnToMenuButton;
         private System.Windows.Forms.Button EditUsernameButton;
         private System.Windows.Forms.TextBox EditUserNameTextBox;
+        private System.Windows.Forms.Label OtherTabLabel;
+        private System.Windows.Forms.Label AppStartedLabel;
     }
 }
