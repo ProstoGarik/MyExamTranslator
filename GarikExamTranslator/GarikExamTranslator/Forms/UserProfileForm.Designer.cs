@@ -35,9 +35,11 @@
             this.CompletedTestsLabel = new System.Windows.Forms.Label();
             this.TestsTabLabel = new System.Windows.Forms.Label();
             this.PerfectTestsLabel = new System.Windows.Forms.Label();
-            this.ErrorRateLabel = new System.Windows.Forms.Label();
             this.UserPicturePicBox = new System.Windows.Forms.PictureBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
+            this.ReturnToMenuButton = new System.Windows.Forms.Button();
+            this.EditUsernameButton = new System.Windows.Forms.Button();
+            this.EditUserNameTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicturePicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,25 +115,15 @@
             this.PerfectTestsLabel.TabIndex = 10;
             this.PerfectTestsLabel.Text = "Идеальных тестов:";
             // 
-            // ErrorRateLabel
-            // 
-            this.ErrorRateLabel.AutoSize = true;
-            this.ErrorRateLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ErrorRateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ErrorRateLabel.ForeColor = System.Drawing.Color.White;
-            this.ErrorRateLabel.Location = new System.Drawing.Point(410, 355);
-            this.ErrorRateLabel.Name = "ErrorRateLabel";
-            this.ErrorRateLabel.Size = new System.Drawing.Size(226, 31);
-            this.ErrorRateLabel.TabIndex = 11;
-            this.ErrorRateLabel.Text = "Частота ошибок:";
-            // 
             // UserPicturePicBox
             // 
+            this.UserPicturePicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.UserPicturePicBox.Location = new System.Drawing.Point(18, 58);
             this.UserPicturePicBox.Name = "UserPicturePicBox";
             this.UserPicturePicBox.Size = new System.Drawing.Size(85, 85);
             this.UserPicturePicBox.TabIndex = 12;
             this.UserPicturePicBox.TabStop = false;
+            this.UserPicturePicBox.Click += new System.EventHandler(this.UserPicturePicBox_Click);
             // 
             // UsernameLabel
             // 
@@ -145,6 +137,54 @@
             this.UsernameLabel.TabIndex = 13;
             this.UsernameLabel.Text = "Пользователь";
             // 
+            // ReturnToMenuButton
+            // 
+            this.ReturnToMenuButton.BackColor = System.Drawing.Color.Transparent;
+            this.ReturnToMenuButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.GoBack_Icon;
+            this.ReturnToMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ReturnToMenuButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReturnToMenuButton.FlatAppearance.BorderSize = 0;
+            this.ReturnToMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ReturnToMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ReturnToMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReturnToMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ReturnToMenuButton.Location = new System.Drawing.Point(668, -16);
+            this.ReturnToMenuButton.Name = "ReturnToMenuButton";
+            this.ReturnToMenuButton.Size = new System.Drawing.Size(138, 138);
+            this.ReturnToMenuButton.TabIndex = 14;
+            this.ReturnToMenuButton.UseVisualStyleBackColor = false;
+            this.ReturnToMenuButton.Click += new System.EventHandler(this.ReturnToMenuButton_Click);
+            this.ReturnToMenuButton.MouseEnter += new System.EventHandler(this.ReturnToMenuButton_MouseEnter);
+            this.ReturnToMenuButton.MouseLeave += new System.EventHandler(this.ReturnToMenuButton_MouseLeave);
+            // 
+            // EditUsernameButton
+            // 
+            this.EditUsernameButton.BackColor = System.Drawing.Color.Transparent;
+            this.EditUsernameButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Edit_Icon;
+            this.EditUsernameButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EditUsernameButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditUsernameButton.FlatAppearance.BorderSize = 0;
+            this.EditUsernameButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.EditUsernameButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.EditUsernameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditUsernameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditUsernameButton.Location = new System.Drawing.Point(301, 58);
+            this.EditUsernameButton.Name = "EditUsernameButton";
+            this.EditUsernameButton.Size = new System.Drawing.Size(50, 50);
+            this.EditUsernameButton.TabIndex = 15;
+            this.EditUsernameButton.UseVisualStyleBackColor = false;
+            this.EditUsernameButton.Click += new System.EventHandler(this.EditUsernameButton_Click);
+            // 
+            // EditUserNameTextBox
+            // 
+            this.EditUserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditUserNameTextBox.Location = new System.Drawing.Point(115, 123);
+            this.EditUserNameTextBox.MaxLength = 25;
+            this.EditUserNameTextBox.Name = "EditUserNameTextBox";
+            this.EditUserNameTextBox.Size = new System.Drawing.Size(236, 38);
+            this.EditUserNameTextBox.TabIndex = 16;
+            this.EditUserNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditUserNameTextBox_KeyDown);
+            // 
             // UserProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,9 +192,11 @@
             this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.EditUserNameTextBox);
+            this.Controls.Add(this.EditUsernameButton);
+            this.Controls.Add(this.ReturnToMenuButton);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.UserPicturePicBox);
-            this.Controls.Add(this.ErrorRateLabel);
             this.Controls.Add(this.PerfectTestsLabel);
             this.Controls.Add(this.CompletedTestsLabel);
             this.Controls.Add(this.TestsTabLabel);
@@ -164,7 +206,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserProfileForm";
             this.Text = "Garik Translator";
+            this.Activated += new System.EventHandler(this.UserProfileForm_Activated);
             this.Load += new System.EventHandler(this.UserProfileForm_Load);
+            this.Click += new System.EventHandler(this.UserProfileForm_Click);
             ((System.ComponentModel.ISupportInitialize)(this.UserPicturePicBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,8 +223,10 @@
         private System.Windows.Forms.Label CompletedTestsLabel;
         private System.Windows.Forms.Label TestsTabLabel;
         private System.Windows.Forms.Label PerfectTestsLabel;
-        private System.Windows.Forms.Label ErrorRateLabel;
         private System.Windows.Forms.PictureBox UserPicturePicBox;
         private System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.Button ReturnToMenuButton;
+        private System.Windows.Forms.Button EditUsernameButton;
+        private System.Windows.Forms.TextBox EditUserNameTextBox;
     }
 }

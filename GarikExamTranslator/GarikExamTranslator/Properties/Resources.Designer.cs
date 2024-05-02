@@ -153,6 +153,26 @@ namespace GarikExamTranslator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Edit_Icon {
+            get {
+                object obj = ResourceManager.GetObject("Edit_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_Icon_OnHover {
+            get {
+                object obj = ResourceManager.GetObject("Edit_Icon_OnHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GoBack_Icon {
             get {
                 object obj = ResourceManager.GetObject("GoBack_Icon", resourceCulture);

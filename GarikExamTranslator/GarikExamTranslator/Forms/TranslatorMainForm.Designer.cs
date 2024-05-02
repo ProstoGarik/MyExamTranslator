@@ -128,6 +128,7 @@
             this.UserProfileButton.Size = new System.Drawing.Size(100, 100);
             this.UserProfileButton.TabIndex = 5;
             this.UserProfileButton.UseVisualStyleBackColor = false;
+            this.UserProfileButton.Click += new System.EventHandler(this.UserProfileButton_Click);
             this.UserProfileButton.MouseEnter += new System.EventHandler(this.UserProfileButton_MouseEnter);
             this.UserProfileButton.MouseLeave += new System.EventHandler(this.UserProfileButton_MouseLeave);
             // 

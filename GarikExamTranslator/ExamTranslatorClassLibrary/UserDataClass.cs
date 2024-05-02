@@ -9,9 +9,10 @@ namespace ExamTranslatorClassLibrary
     public class UserDataClass
     {
         private string username;
-        private int wordsAdded;
-        private int completedTests;
-        private int perfectTests;
+        private long wordsAdded;
+        private long completedTests;
+        private long perfectTests;
+        private string imagePath;
 
         public UserDataClass()
         {
@@ -19,18 +20,22 @@ namespace ExamTranslatorClassLibrary
             WordsAdded = 0;
             CompletedTests = 0;
             PerfectTests = 0;
+            imagePath = string.Empty;
         }
 
-        public void EditData(string newUsername, int newWordsAdded, int newCompletedTests, int newPerfectTests)
-        {
-            this.username = newUsername;
-            this.wordsAdded = newWordsAdded;
-            this.completedTests = newCompletedTests;
-            this.PerfectTests = newPerfectTests;
-        }
         public string Username { get => username; set => username = value; }
-        public int WordsAdded { get => wordsAdded; set => wordsAdded = value; }
-        public int CompletedTests { get => completedTests; set => completedTests = value; }
-        public int PerfectTests { get => perfectTests; set => perfectTests = value; }
+        public long WordsAdded { get => wordsAdded; set => wordsAdded = value; }
+        public long CompletedTests { get => completedTests; set => completedTests = value; }
+        public long PerfectTests { get => perfectTests; set => perfectTests = value; }
+        public string ImagePath { get => imagePath; set => imagePath = value; }
+
+        public void EditData(string newUsername, long newWordsAdded, long newCompletedTests, long newPerfectTests, string newImagePath)
+        {
+            this.Username = newUsername;
+            this.WordsAdded = newWordsAdded;
+            this.CompletedTests = newCompletedTests;
+            this.PerfectTests = newPerfectTests;
+            this.imagePath = newImagePath;
+        }
     }
 }

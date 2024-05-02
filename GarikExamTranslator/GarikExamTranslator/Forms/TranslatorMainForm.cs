@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GarikExamTranslator.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace GarikExamTranslator
         viewModel viewModel;
         AddAndEditWordForm addAndEditWordForm;
         WordListForm wordListForm;
+        UserProfileForm userProfileForm;
 
         public TranslatorMainForm()
         {
@@ -22,6 +24,7 @@ namespace GarikExamTranslator
             viewModel = new viewModel();
             addAndEditWordForm = new AddAndEditWordForm(this, viewModel, false);
             wordListForm = new WordListForm(this, addAndEditWordForm, viewModel);
+            userProfileForm = new UserProfileForm(this, viewModel);
         }
 
 
@@ -84,6 +87,11 @@ namespace GarikExamTranslator
         private void UserProfileButton_MouseLeave(object sender, EventArgs e)
         {
             UserProfileButton.Image = Properties.Resources.User_Icon;
+        }
+
+        private void UserProfileButton_Click(object sender, EventArgs e)
+        {
+            viewModel.FormResizeCloseOpen(this, userProfileForm);
         }
     }
 }

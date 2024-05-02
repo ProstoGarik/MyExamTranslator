@@ -206,6 +206,12 @@
   <ItemGroup>
     <None Include="Resources\UI\User_Icon_OnHover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\Edit_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UI\Edit_Icon_OnHover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

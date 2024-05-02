@@ -195,5 +195,15 @@ namespace GarikExamTranslator
                 userData.PerfectTests += 1;
             }
         }
+
+        public UserDataClass GetUserData()
+        {
+            return userData;
+        }
+
+        public void EditUserData(string newUsername, long newWordsAdded, long newCompletedTests, long newPerfectTests, string newImagePath)
+        {
+            userData.EditData(newUsername, newWordsAdded, newCompletedTests, newPerfectTests, newImagePath);
+        }
     }
 }
