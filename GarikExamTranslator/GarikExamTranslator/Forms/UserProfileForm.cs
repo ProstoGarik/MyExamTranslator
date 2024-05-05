@@ -17,6 +17,7 @@ namespace GarikExamTranslator.Forms
         TranslatorMainForm returnForm;
         viewModel viewModel;
         UserDataClass userData;
+        SelectUserForm SelectUserForm;
 
         public UserProfileForm(TranslatorMainForm returnForm, viewModel viewModel)
         {
@@ -54,6 +55,7 @@ namespace GarikExamTranslator.Forms
             WordsAddedLabel.Text = "Добавлено слов: " + userData.WordsAdded;
             CompletedTestsLabel.Text = "Пройдено тестов: " + userData.CompletedTests;
             PerfectTestsLabel.Text = "Идеальных тестов: " + userData.PerfectTests;
+            AppStartedLabel.Text = "Запусков приложения: " + userData.AppStarted;
             try
             {
                 UserPicturePicBox.Image = (Image)new Bitmap(Image.FromFile(userData.ImagePath), UserPicturePicBox.Size);
@@ -91,7 +93,7 @@ namespace GarikExamTranslator.Forms
                 EditUsernameButton.Visible = true;
                 UsernameLabel.Visible = true;
                 EditUserNameTextBox.Visible = false;
-                viewModel.EditUserData(UsernameLabel.Text, userData.WordsAdded, userData.CompletedTests, userData.PerfectTests, userData.ImagePath);
+                viewModel.EditUserData(UsernameLabel.Text, userData.WordsAdded, userData.CompletedTests, userData.PerfectTests, userData.ImagePath, userData.AppStarted);
                 viewModel.Save();
                 EditUsernameButton.Location = new Point(UsernameLabel.Size.Width + UsernameLabel.Location.X, EditUsernameButton.Location.Y);
             }
@@ -104,7 +106,7 @@ namespace GarikExamTranslator.Forms
             if(open.ShowDialog() == DialogResult.OK)
             {
                 UserPicturePicBox.Image = (Image)new Bitmap(Image.FromFile(open.FileName), UserPicturePicBox.Size);
-                viewModel.EditUserData(userData.Username, userData.WordsAdded, userData.CompletedTests, userData.PerfectTests, open.FileName);
+                viewModel.EditUserData(userData.Username, userData.WordsAdded, userData.CompletedTests, userData.PerfectTests, open.FileName, userData.AppStarted);
             }
             viewModel.Save();
         }
@@ -120,6 +122,22 @@ namespace GarikExamTranslator.Forms
         private void UserProfileForm_Shown(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+        private void ChangeUserButton_MouseEnter(object sender, EventArgs e)
+        {
+            ChangeUserButton.Image = Properties.Resources.ChangeUser_Icon_OnHover;
+        }
+
+        private void ChangeUserButton_MouseLeave(object sender, EventArgs e)
+        {
+            ChangeUserButton.Image = Properties.Resources.ChangeUser_Icon;
+        }
+
+        private void ChangeUserButton_Click(object sender, EventArgs e)
+        {
+            SelectUserForm = new SelectUserForm(viewModel, this);
+            viewModel.FormResizeCloseOpen(this, SelectUserForm);
         }
     }
 }

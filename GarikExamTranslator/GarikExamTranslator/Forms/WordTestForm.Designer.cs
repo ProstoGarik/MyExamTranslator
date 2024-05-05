@@ -38,6 +38,7 @@
             this.TestResultLabel = new System.Windows.Forms.Label();
             this.AnswerButton = new System.Windows.Forms.Button();
             this.GoBackButton = new System.Windows.Forms.Button();
+            this.PerfectResultLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // WordTestUpperLabel
@@ -83,6 +84,7 @@
             this.TranslationInputTextBox.Name = "TranslationInputTextBox";
             this.TranslationInputTextBox.Size = new System.Drawing.Size(376, 29);
             this.TranslationInputTextBox.TabIndex = 5;
+            this.TranslationInputTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TranslationInputTextBox_KeyDown);
             // 
             // TestCounterLabel
             // 
@@ -158,6 +160,18 @@
             this.GoBackButton.MouseEnter += new System.EventHandler(this.GoBackButton_MouseEnter);
             this.GoBackButton.MouseLeave += new System.EventHandler(this.GoBackButton_MouseLeave);
             // 
+            // PerfectResultLabel
+            // 
+            this.PerfectResultLabel.AutoSize = true;
+            this.PerfectResultLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PerfectResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PerfectResultLabel.ForeColor = System.Drawing.Color.White;
+            this.PerfectResultLabel.Location = new System.Drawing.Point(301, 83);
+            this.PerfectResultLabel.Name = "PerfectResultLabel";
+            this.PerfectResultLabel.Size = new System.Drawing.Size(226, 31);
+            this.PerfectResultLabel.TabIndex = 13;
+            this.PerfectResultLabel.Text = "Идеальный тест!";
+            // 
             // WordTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +180,7 @@
             this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PerfectResultLabel);
             this.Controls.Add(this.AnswerButton);
             this.Controls.Add(this.TestResultLabel);
             this.Controls.Add(this.MainWordLabel);
@@ -197,5 +212,6 @@
         private System.Windows.Forms.Label MainWordLabel;
         private System.Windows.Forms.Label TestResultLabel;
         private System.Windows.Forms.Button AnswerButton;
+        private System.Windows.Forms.Label PerfectResultLabel;
     }
 }

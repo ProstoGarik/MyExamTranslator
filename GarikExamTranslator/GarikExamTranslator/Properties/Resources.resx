@@ -130,6 +130,12 @@
   <data name="Book_Icon_OnHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\Book_Icon_OnHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ChangeUser_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\ChangeUser_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChangeUser_Icon_OnHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\ChangeUser_Icon_OnHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Delete_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\Delete_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

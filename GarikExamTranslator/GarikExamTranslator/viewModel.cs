@@ -31,7 +31,8 @@ namespace GarikExamTranslator
             wordList.ResetTargetWord();
             fontCollection = new PrivateFontCollection();
             fontCollection.AddFontFile("..\\..\\Resources\\Fonts\\vivid_snas\\VividSans-Regular.ttf");
-            
+            userData.AppStarted += 1;
+            Save();
         }
 
         public void AddWord(string word, string translation, string group)
@@ -201,9 +202,9 @@ namespace GarikExamTranslator
             return userData;
         }
 
-        public void EditUserData(string newUsername, long newWordsAdded, long newCompletedTests, long newPerfectTests, string newImagePath)
+        public void EditUserData(string newUsername, long newWordsAdded, long newCompletedTests, long newPerfectTests, string newImagePath, long newAppStarted)
         {
-            userData.EditData(newUsername, newWordsAdded, newCompletedTests, newPerfectTests, newImagePath);
+            userData.EditData(newUsername, newWordsAdded, newCompletedTests, newPerfectTests, newImagePath, newAppStarted);
         }
     }
 }

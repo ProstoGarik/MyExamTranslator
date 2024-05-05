@@ -76,7 +76,6 @@ namespace GarikExamTranslator
         private void StartTestButton_Click(object sender, EventArgs e)
         {
             PreTestForm = new PreTestForm(this, viewModel);
-            //viewModel.CreateTestList();
             viewModel.FormResizeCloseOpen(this, PreTestForm);
         }
 

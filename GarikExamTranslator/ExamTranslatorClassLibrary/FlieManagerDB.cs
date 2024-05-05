@@ -216,7 +216,7 @@ namespace ExamTranslatorClassLibrary
 
             command = new SQLiteCommand(connection)
             {
-                CommandText = "UPDATE \"UserData\" SET Username =\"" + userData.Username + "\", WordsAdded =" + userData.WordsAdded + ", CompletedTests =" + userData.CompletedTests + ", PerfectTests =" + userData.PerfectTests + ", ImagePath =\"" + userData.ImagePath + "\""
+                CommandText = "UPDATE \"UserData\" SET Username =\"" + userData.Username + "\", WordsAdded =" + userData.WordsAdded + ", CompletedTests =" + userData.CompletedTests + ", PerfectTests =" + userData.PerfectTests + ", ImagePath =\"" + userData.ImagePath + "\", AppStarted="+userData.AppStarted+""
             };
             command.ExecuteNonQuery();
 
@@ -252,7 +252,7 @@ namespace ExamTranslatorClassLibrary
             adapter.Fill(data);
             foreach (DataRow row in data.Rows)
             {
-                userData.EditData(row.Field<String>("Username"), row.Field<long>("WordsAdded"), row.Field<long>("CompletedTests"), row.Field<long>("PerfectTests"), row.Field<string>("ImagePath"));
+                userData.EditData(row.Field<String>("Username"), row.Field<long>("WordsAdded"), row.Field<long>("CompletedTests"), row.Field<long>("PerfectTests"), row.Field<string>("ImagePath"), row.Field<long>("AppStarted"));
             }
             
 

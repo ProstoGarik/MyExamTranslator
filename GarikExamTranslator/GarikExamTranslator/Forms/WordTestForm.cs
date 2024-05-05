@@ -28,6 +28,7 @@ namespace GarikExamTranslator.Forms
 
         private void WordTestForm_Load(object sender, EventArgs e)
         {
+            PerfectResultLabel.Visible = false;
             wordTestClass = viewModel.GetTestList();
             UpdateCounters();
             TestResultLabel.Text = "";
@@ -37,6 +38,7 @@ namespace GarikExamTranslator.Forms
             viewModel.ApplyFont(WordTaskLabel);
             viewModel.ApplyFont(WordTestUpperLabel);
             viewModel.ApplyFont(WordTranslationLabel);
+            viewModel.ApplyFont(PerfectResultLabel);
 
         }
 
@@ -55,6 +57,10 @@ namespace GarikExamTranslator.Forms
                 MainWordLabel.Text = "";
                 AnswerButton.Enabled = false;
                 TranslationInputTextBox.Enabled = false;
+                if(correctAnswerCounter == wordTestClass.GetWordListCount())
+                {
+                    PerfectResultLabel.Visible = true;
+                }
                 viewModel.UpdateUserTests(correctAnswerCounter == wordTestClass.GetWordListCount());
             }
             
@@ -106,6 +112,14 @@ namespace GarikExamTranslator.Forms
         private void WordTestForm_Activated(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+        private void TranslationInputTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                AnswerButton_Click(sender, e);
+            }
         }
     }
 }
