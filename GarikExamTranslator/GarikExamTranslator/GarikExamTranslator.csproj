@@ -89,12 +89,6 @@
     <Compile Include="Forms\PreTestForm.Designer.cs">
       <DependentUpon>PreTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SelectUserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SelectUserForm.Designer.cs">
-      <DependentUpon>SelectUserForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\TranslatorMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,9 +129,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PreTestForm.resx">
       <DependentUpon>PreTestForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SelectUserForm.resx">
-      <DependentUpon>SelectUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserProfileForm.resx">
       <DependentUpon>UserProfileForm.cs</DependentUpon>

@@ -17,7 +17,6 @@ namespace GarikExamTranslator.Forms
         TranslatorMainForm returnForm;
         viewModel viewModel;
         UserDataClass userData;
-        SelectUserForm SelectUserForm;
 
         public UserProfileForm(TranslatorMainForm returnForm, viewModel viewModel)
         {
@@ -122,22 +121,6 @@ namespace GarikExamTranslator.Forms
         private void UserProfileForm_Shown(object sender, EventArgs e)
         {
             Refresh();
-        }
-
-        private void ChangeUserButton_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeUserButton.Image = Properties.Resources.ChangeUser_Icon_OnHover;
-        }
-
-        private void ChangeUserButton_MouseLeave(object sender, EventArgs e)
-        {
-            ChangeUserButton.Image = Properties.Resources.ChangeUser_Icon;
-        }
-
-        private void ChangeUserButton_Click(object sender, EventArgs e)
-        {
-            SelectUserForm = new SelectUserForm(viewModel, this);
-            viewModel.FormResizeCloseOpen(this, SelectUserForm);
         }
     }
 }

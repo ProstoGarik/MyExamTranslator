@@ -42,7 +42,6 @@
             this.EditUserNameTextBox = new System.Windows.Forms.TextBox();
             this.OtherTabLabel = new System.Windows.Forms.Label();
             this.AppStartedLabel = new System.Windows.Forms.Label();
-            this.ChangeUserButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicturePicBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,26 +212,6 @@
             this.AppStartedLabel.TabIndex = 18;
             this.AppStartedLabel.Text = "Запусков приложения:";
             // 
-            // ChangeUserButton
-            // 
-            this.ChangeUserButton.BackColor = System.Drawing.Color.Transparent;
-            this.ChangeUserButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.ChangeUser_Icon;
-            this.ChangeUserButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ChangeUserButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChangeUserButton.FlatAppearance.BorderSize = 0;
-            this.ChangeUserButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.ChangeUserButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.ChangeUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ChangeUserButton.Location = new System.Drawing.Point(577, 12);
-            this.ChangeUserButton.Name = "ChangeUserButton";
-            this.ChangeUserButton.Size = new System.Drawing.Size(85, 85);
-            this.ChangeUserButton.TabIndex = 19;
-            this.ChangeUserButton.UseVisualStyleBackColor = false;
-            this.ChangeUserButton.Click += new System.EventHandler(this.ChangeUserButton_Click);
-            this.ChangeUserButton.MouseEnter += new System.EventHandler(this.ChangeUserButton_MouseEnter);
-            this.ChangeUserButton.MouseLeave += new System.EventHandler(this.ChangeUserButton_MouseLeave);
-            // 
             // UserProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,7 +219,6 @@
             this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ChangeUserButton);
             this.Controls.Add(this.AppStartedLabel);
             this.Controls.Add(this.OtherTabLabel);
             this.Controls.Add(this.EditUserNameTextBox);
@@ -282,6 +260,5 @@
         private System.Windows.Forms.TextBox EditUserNameTextBox;
         private System.Windows.Forms.Label OtherTabLabel;
         private System.Windows.Forms.Label AppStartedLabel;
-        private System.Windows.Forms.Button ChangeUserButton;
     }
 }
