@@ -60,7 +60,7 @@ namespace GarikExamTranslator
         private void WordListForm_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-            wordsPanel = new MyControlPanel(viewModel, addAndEditWordForm, this, EditWordButton, DeleteWordButton);
+            wordsPanel = new MyControlPanel(viewModel, addAndEditWordForm, this, EditWordButton, DeleteWordButton, SayWordButton);
             wordsPanel.Location = new Point(10, 35);
             wordsPanel.Size = new Size(400, 400);
             wordsPanel.BorderStyle = BorderStyle.FixedSingle;
@@ -171,12 +171,21 @@ namespace GarikExamTranslator
             HideButtons();
         }
 
+        private void SayWordButton_Click(object sender, EventArgs e)
+        {
+            viewModel.Say(); 
+        }
+
         private void HideButtons()
         {
             EditWordButton.Hide();
             DeleteWordButton.Hide();
+            SayWordButton.Hide();
             EditWordButton.Enabled = false;
             DeleteWordButton.Enabled = false;
+            SayWordButton.Enabled = false;
         }
+
+        
     }
 }

@@ -23,10 +23,11 @@ namespace GarikExamTranslator.Custom
         private string CurrentGroup;
         private Button editButton;
         private Button deleteButton;
+        private Button sayButton;
 
 
         public MyControlPanel(viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm,
-            Button editButton, Button deleteButton)
+            Button editButton, Button deleteButton, Button sayButton)
         {
             InitializeComponent();
             this.viewModel = viewModel;
@@ -35,6 +36,7 @@ namespace GarikExamTranslator.Custom
             this.thisForm = thisForm;
             this.editButton = editButton;
             this.deleteButton = deleteButton;
+            this.sayButton = sayButton;
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -56,7 +58,7 @@ namespace GarikExamTranslator.Custom
 
         private void AddWordLabel(int wordIndex)
         {
-            MyWordLabel wordLabel = new MyWordLabel(wordIndex, queueNum, viewModel, addAndEditWordForm, thisForm, editButton, deleteButton);
+            MyWordLabel wordLabel = new MyWordLabel(wordIndex, queueNum, viewModel, addAndEditWordForm, thisForm, editButton, deleteButton, sayButton);
             wordLabel.Location = new Point(tempLocation.X, tempLocation.Y);
             this.Controls.Add(wordLabel);
             tempLocation = new Point(tempLocation.X, tempLocation.Y + wordLabel.Size.Height + 10);

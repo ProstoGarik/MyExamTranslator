@@ -243,6 +243,16 @@ namespace GarikExamTranslator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tts_Icon {
+            get {
+                object obj = ResourceManager.GetObject("tts_Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap User_Icon {
             get {
                 object obj = ResourceManager.GetObject("User_Icon", resourceCulture);

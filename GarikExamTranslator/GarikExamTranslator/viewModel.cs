@@ -16,6 +16,7 @@ namespace GarikExamTranslator
     {
         public WordClass workinWithWord;
 
+        private TextToSpeech textToSpeech;
         private PrivateFontCollection fontCollection;
         public IFileManager fileManager;
         private WordListClass wordList;
@@ -24,6 +25,7 @@ namespace GarikExamTranslator
         public viewModel() 
         {
             fileManager = new FileManagerDB();
+            textToSpeech = new TextToSpeech();
             wordList = new WordListClass();
             wordListForTest = new WordListClass();
             userData = new UserDataClass();
@@ -178,14 +180,18 @@ namespace GarikExamTranslator
             Save();
         }
 
-        public void MoveLabelButtons(Button editButton, Button deleteButton, MyWordLabel label)
+        public void MoveLabelButtons(Button editButton, Button deleteButton, Button sayButton, MyWordLabel label)
         {
             editButton.Enabled = true;
             editButton.Show();
             deleteButton.Show();
             deleteButton.Enabled = true;
+            sayButton.Enabled = true;
+            sayButton.Show();
             editButton.Location = new Point(420, label.Location.Y+22);
-            deleteButton.Location = new Point(535, label.Location.Y + 22);
+            deleteButton.Location = new Point(515, label.Location.Y + 22);
+            sayButton.Location = new Point(605, label.Location.Y + 22);
+
         }
 
         public void UpdateUserTests(bool isPerfect)
@@ -205,6 +211,11 @@ namespace GarikExamTranslator
         public void EditUserData(string newUsername, long newWordsAdded, long newCompletedTests, long newPerfectTests, string newImagePath, long newAppStarted)
         {
             userData.EditData(newUsername, newWordsAdded, newCompletedTests, newPerfectTests, newImagePath, newAppStarted);
+        }
+
+        public void Say()
+        {
+            textToSpeech.Say(GetTargetWord().Word);
         }
     }
 }

@@ -54,6 +54,7 @@
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -168,6 +169,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\eSpeak\unins000.dat" />
     <None Include="Resources\Fonts\vivid_snas\VividSans-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +219,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UI\ChangeUser_Icon_OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\eSpeak\ChangeLog.txt" />
+    <Content Include="Resources\eSpeak\espeak_sapi.dll" />
+    <Content Include="Resources\eSpeak\License.txt" />
+    <Content Include="Resources\eSpeak\Readme.txt" />
+    <Content Include="Resources\eSpeak\TTSApp.exe" />
+    <Content Include="Resources\eSpeak\unins000.exe" />
+    <None Include="Resources\UI\tts_Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

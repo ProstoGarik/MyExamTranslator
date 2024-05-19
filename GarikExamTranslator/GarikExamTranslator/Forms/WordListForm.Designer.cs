@@ -40,6 +40,7 @@
             this.ReturnToMenuButton = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.WordGroupsComboBox = new System.Windows.Forms.ComboBox();
+            this.SayWordButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,11 +86,11 @@
             this.EditWordButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditWordButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EditWordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EditWordButton.ForeColor = System.Drawing.Color.White;
             this.EditWordButton.Location = new System.Drawing.Point(410, 12);
             this.EditWordButton.Name = "EditWordButton";
-            this.EditWordButton.Size = new System.Drawing.Size(105, 43);
+            this.EditWordButton.Size = new System.Drawing.Size(85, 43);
             this.EditWordButton.TabIndex = 16;
             this.EditWordButton.Text = "Изменить";
             this.EditWordButton.UseVisualStyleBackColor = false;
@@ -100,11 +101,11 @@
             this.DeleteWordButton.BackColor = System.Drawing.Color.Crimson;
             this.DeleteWordButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteWordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeleteWordButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteWordButton.Location = new System.Drawing.Point(536, 12);
+            this.DeleteWordButton.Location = new System.Drawing.Point(499, 12);
             this.DeleteWordButton.Name = "DeleteWordButton";
-            this.DeleteWordButton.Size = new System.Drawing.Size(105, 43);
+            this.DeleteWordButton.Size = new System.Drawing.Size(85, 43);
             this.DeleteWordButton.TabIndex = 17;
             this.DeleteWordButton.Text = "Удалить";
             this.DeleteWordButton.UseVisualStyleBackColor = false;
@@ -184,6 +185,24 @@
             this.WordGroupsComboBox.Text = "Без Группы";
             this.WordGroupsComboBox.SelectedIndexChanged += new System.EventHandler(this.WordGroupsComboBox_SelectedIndexChanged);
             // 
+            // SayWordButton
+            // 
+            this.SayWordButton.BackColor = System.Drawing.Color.Transparent;
+            this.SayWordButton.BackgroundImage = global::GarikExamTranslator.Properties.Resources.tts_Icon;
+            this.SayWordButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SayWordButton.FlatAppearance.BorderSize = 0;
+            this.SayWordButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.SayWordButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.SayWordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SayWordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SayWordButton.ForeColor = System.Drawing.Color.Transparent;
+            this.SayWordButton.Location = new System.Drawing.Point(590, 12);
+            this.SayWordButton.Name = "SayWordButton";
+            this.SayWordButton.Size = new System.Drawing.Size(54, 43);
+            this.SayWordButton.TabIndex = 18;
+            this.SayWordButton.UseVisualStyleBackColor = false;
+            this.SayWordButton.Click += new System.EventHandler(this.SayWordButton_Click);
+            // 
             // WordListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +211,7 @@
             this.BackgroundImage = global::GarikExamTranslator.Properties.Resources.Orange_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SayWordButton);
             this.Controls.Add(this.DeleteWordButton);
             this.Controls.Add(this.EditWordButton);
             this.Controls.Add(this.DeleteGroupLabel);
@@ -226,5 +246,6 @@
         private System.Windows.Forms.Button EditWordButton;
         private System.Windows.Forms.Button DeleteWordButton;
         private System.Windows.Forms.ComboBox WordGroupsComboBox;
+        private System.Windows.Forms.Button SayWordButton;
     }
 }

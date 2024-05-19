@@ -19,10 +19,11 @@ namespace GarikExamTranslator.Custom
         private int queueNum;
         private Button editButton;
         private Button deleteButton;
+        private Button sayButton;
 
 
         public MyWordLabel(int wordIndex, int queueNum, viewModel viewModel, AddAndEditWordForm addAndEditWordForm, Form thisForm,
-            Button editButton, Button DeleteButton)
+            Button editButton, Button deleteButton, Button sayButton)
         {
             InitializeComponent();
             this.viewModel = viewModel;
@@ -33,7 +34,8 @@ namespace GarikExamTranslator.Custom
             this.MaximumSize = new Size(350, 500);
             this.ForeColor = Color.White;
             this.editButton = editButton;
-            this.deleteButton = DeleteButton;
+            this.deleteButton = deleteButton;
+            this.sayButton = sayButton;
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -54,7 +56,7 @@ namespace GarikExamTranslator.Custom
         {
             base.OnClick(e);
             viewModel.ChooseWordByIndex(this.wordIndex);
-            viewModel.MoveLabelButtons(editButton, deleteButton, this);
+            viewModel.MoveLabelButtons(editButton, deleteButton, sayButton, this);
         }
 
         protected override void OnMouseEnter(EventArgs e)
